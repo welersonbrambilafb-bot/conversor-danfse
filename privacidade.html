@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Política de Privacidade — DANFSe.tools</title>
+<meta name="description" content="Política de Privacidade da DANFSe.tools — ferramenta de conversão de XML de NFS-e em PDF. Detalhamento sobre tratamento de dados, cookies, anúncios e LGPD." />
+<meta name="robots" content="index, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --ink: #1F2937; --ink-soft: #374151;
+  --ink-muted: #6B7280; --border: #E1E7DE; --accent: #5CB85C;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg); color: var(--ink);
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.site-header {
+  background: rgba(248,244,237,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+}
+.site-header__inner {
+  max-width: 860px; margin: 0 auto;
+  padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700; font-size: 19px;
+  color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+main {
+  max-width: 760px; margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(34px, 5vw, 50px); line-height: 1.1;
+  letter-spacing: -0.02em; margin-bottom: 18px;
+}
+.eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.last-update {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 40px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 24px; letter-spacing: -0.015em;
+  margin-top: 48px; margin-bottom: 14px; color: var(--ink);
+}
+h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 17px; margin-top: 28px; margin-bottom: 8px;
+}
+p { margin-bottom: 14px; color: var(--ink-soft); }
+ul { margin: 12px 0 14px 24px; color: var(--ink-soft); }
+li { margin-bottom: 6px; }
+a { color: var(--accent); }
+strong { color: var(--ink); }
+.box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px; border-radius: 4px; margin: 24px 0;
+}
+.back {
+  display: inline-block; margin-top: 40px;
+  font-size: 14px; color: var(--ink-soft); text-decoration: none;
+}
+.back:hover { color: var(--accent); }
+footer {
+  margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--ink-muted); text-align: center;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="eyebrow">Documento legal</div>
+  <h1>Política de Privacidade</h1>
+  <div class="last-update">Última atualização: <span id="upd-date">02 de maio de 2026</span></div>
+
+  <div class="box">
+    <p style="margin-bottom: 0;">
+      <strong>Resumo em uma linha:</strong> a DANFSe.tools não coleta, não armazena e não envia seus arquivos XML para nenhum servidor. Toda a conversão acontece dentro do seu navegador.
+    </p>
+  </div>
+
+  <h2>1. Quem somos</h2>
+  <p>
+    DANFSe.tools (doravante "o serviço", "nós") é uma ferramenta web independente para conversão de arquivos XML da NFS-e Padrão Nacional em representação visual em PDF (DANFSe). Não temos vínculo com órgãos governamentais, prefeituras, Receita Federal ou Comitê Gestor da NFS-e.
+  </p>
+
+  <h2>2. Dados que NÃO coletamos</h2>
+  <p>O serviço foi explicitamente projetado para que <strong>seus arquivos nunca saiam do seu computador</strong>:</p>
+  <ul>
+    <li>Não recebemos, armazenamos ou processamos os XMLs que você converte;</li>
+    <li>Não temos acesso ao conteúdo dos arquivos (CNPJ de prestador/tomador, valores, descrições, chave de acesso);</li>
+    <li>Não exigimos cadastro, login ou qualquer identificação pessoal;</li>
+    <li>Os PDFs gerados são criados localmente pelo seu navegador e baixados diretamente para sua pasta de Downloads.</li>
+  </ul>
+  <p>Tecnicamente, isso é possível porque o conversor roda em <strong>Pyodide</strong> (Python compilado para WebAssembly), que executa todo o processamento dentro da aba do seu navegador. Você pode verificar isso abrindo as ferramentas de desenvolvedor do navegador (F12) → aba Network durante uma conversão: nenhuma requisição de upload é feita.</p>
+
+  <h2>3. Dados que coletamos automaticamente</h2>
+  <p>Quando você visita o site, alguns dados técnicos básicos podem ser coletados automaticamente, por nós ou por nossos parceiros (Google), para fins de análise de tráfego e exibição de anúncios:</p>
+  <ul>
+    <li>Endereço IP (de forma agregada/anônima);</li>
+    <li>Tipo e versão do navegador;</li>
+    <li>Sistema operacional;</li>
+    <li>Páginas visitadas e tempo de permanência;</li>
+    <li>Origem do acesso (referrer) — por exemplo, se você veio do Google.</li>
+  </ul>
+  <p>Esses dados são <strong>anônimos</strong> e usados apenas para entender o uso geral do serviço e para a operação dos anúncios.</p>
+
+  <h2>4. Cookies e tecnologias similares</h2>
+  <p>Usamos cookies e armazenamento local (localStorage/cache) para:</p>
+  <ul>
+    <li><strong>Cache do runtime Python (Pyodide):</strong> para que o site não precise baixar ~10 MB toda vez que você acessar. Esse cache fica no seu próprio navegador.</li>
+    <li><strong>Análise de tráfego:</strong> via Google Analytics (se ativado) para estatísticas anônimas de visita.</li>
+    <li><strong>Anúncios:</strong> via Google AdSense, conforme detalhado abaixo.</li>
+  </ul>
+  <p>Você pode bloquear cookies nas configurações do seu navegador. O serviço continuará funcionando, mas a primeira execução pode ficar mais lenta a cada visita.</p>
+
+  <h2>5. Anúncios (Google AdSense)</h2>
+  <p>Para manter o serviço gratuito, exibimos anúncios fornecidos pelo <strong>Google AdSense</strong>. O Google e seus parceiros podem usar cookies para:</p>
+  <ul>
+    <li>Exibir anúncios mais relevantes com base na sua navegação anterior em outros sites;</li>
+    <li>Limitar a frequência com que um anúncio aparece;</li>
+    <li>Medir a eficácia das campanhas publicitárias.</li>
+  </ul>
+  <p>O Google utiliza um cookie chamado <strong>DART</strong> e tecnologias similares. Você pode desativar a personalização de anúncios em <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a> ou acessar <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">a política de privacidade do Google</a> para mais detalhes.</p>
+
+  <h2>6. LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)</h2>
+  <p>Como não coletamos dados pessoais identificáveis dos usuários do conversor (não há cadastro, não há upload de arquivos), o tratamento de dados pelo serviço é mínimo e fundamentado nas seguintes bases legais:</p>
+  <ul>
+    <li><strong>Legítimo interesse</strong> (Art. 7º, IX): para análise de tráfego anônimo e operação técnica do site;</li>
+    <li><strong>Consentimento</strong> (Art. 7º, I): para cookies de personalização de anúncios, que podem ser desativados nas configurações do seu navegador ou da sua conta Google.</li>
+  </ul>
+  <p>Seus direitos como titular incluem acesso, correção, eliminação, portabilidade e revogação de consentimento. Como não armazenamos seus dados, esses direitos se aplicam principalmente aos cookies de terceiros (Google), gerenciáveis nas plataformas de cada parceiro.</p>
+
+  <h2>7. Sobre os PDFs gerados</h2>
+  <p>Os PDFs gerados pela ferramenta são <strong>representação visual</strong> da NFS-e (DANFSe) e <strong>não substituem o XML original</strong>, que é o documento fiscal eletrônico oficial. Use o PDF para arquivamento, conferência e comunicação. Para validação fiscal, sempre utilize a chave de acesso no portal oficial em <a href="https://www.nfse.gov.br" target="_blank" rel="noopener">nfse.gov.br</a>.</p>
+  <p>Não nos responsabilizamos por divergências entre a representação visual gerada e o conteúdo do XML original. Recomendamos sempre conferir o PDF gerado antes de utilizá-lo para fins fiscais ou contábeis.</p>
+
+  <h2>8. Segurança</h2>
+  <p>O site é servido exclusivamente via HTTPS, com certificado válido. Como nenhum dado seu é transmitido para servidores além do necessário para carregar a página em si, o risco de exposição de informações fiscais é estruturalmente eliminado.</p>
+
+  <h2>9. Alterações nesta política</h2>
+  <p>Esta Política de Privacidade pode ser atualizada periodicamente. A data da última atualização aparece no topo desta página. Recomendamos revisão eventual.</p>
+
+  <h2>10. Contato</h2>
+  <p>Dúvidas sobre esta política podem ser enviadas para o e-mail listado no rodapé do site principal.</p>
+
+  <a href="index.html" class="back">← Voltar para a ferramenta</a>
+
+  <footer>
+    DANFSe.tools &middot; Ferramenta independente sem vínculo com órgãos governamentais.
+  </footer>
+</main>
+
+</body>
+</html>
