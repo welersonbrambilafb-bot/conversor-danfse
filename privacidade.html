@@ -3,42 +3,61 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Política de Privacidade — DANFSe.tools</title>
-<meta name="description" content="Política de Privacidade da DANFSe.tools — ferramenta de conversão de XML de NFS-e em PDF. Detalhamento sobre tratamento de dados, cookies, anúncios e LGPD." />
+<title>Política de Privacidade — Conformidade LGPD | DANFSe.tools</title>
+
+<meta name="description" content="Política de Privacidade do DANFSe.tools em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018). Saiba como protegemos seus dados e por que XMLs nunca saem do seu navegador." />
+<meta name="keywords" content="política privacidade DANFSe, LGPD, proteção dados, privacidade NFS-e, conformidade LGPD" />
 <meta name="robots" content="index, follow" />
+<meta name="author" content="Welerson Fábio Brambila" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/privacidade.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Política de Privacidade — DANFSe.tools" />
+<meta property="og:description" content="Conformidade total com a LGPD. Seus XMLs nunca saem do seu navegador." />
+<meta property="og:locale" content="pt_BR" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 
 <style>
 :root {
-  --bg: #F5F7F4; --surface: #FFFFFF; --ink: #1F2937; --ink-soft: #374151;
-  --ink-muted: #6B7280; --border: #E1E7DE; --accent: #5CB85C;
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --warning: #F59E0B; --warning-soft: #FEF3C7;
+  --info: #3B82F6; --info-soft: #DBEAFE;
   --font-display: 'Fraunces', Georgia, serif;
   --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 820px; --radius: 8px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-sans);
-  background: var(--bg); color: var(--ink);
-  font-size: 16px; line-height: 1.7;
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 .site-header {
-  background: rgba(248,244,237,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 .site-header__inner {
-  max-width: 860px; margin: 0 auto;
-  padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
 }
 .brand {
   display: flex; align-items: center; gap: 12px;
-  font-family: var(--font-display); font-weight: 700; font-size: 19px;
-  color: var(--ink); text-decoration: none;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
 }
 .brand__seal {
   width: 36px; height: 36px;
@@ -53,52 +72,247 @@ body {
   letter-spacing: 0.06em; text-transform: uppercase;
   display: block; line-height: 1; margin-top: 3px;
 }
-main {
-  max-width: 760px; margin: 0 auto;
-  padding: 56px 24px 96px;
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); text-decoration: none; }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.page-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 64px 24px 24px;
 }
-h1 {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(34px, 5vw, 50px); line-height: 1.1;
-  letter-spacing: -0.02em; margin-bottom: 18px;
-}
-.eyebrow {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
-}
-.last-update {
+.breadcrumb {
   font-size: 13px; color: var(--ink-muted);
-  margin-bottom: 40px; padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+
+.page-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.page-hero__eyebrow::before {
+  content: ""; width: 24px; height: 1px;
+  background: var(--accent-dark); display: inline-block;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(32px, 5vw, 46px); line-height: 1.1;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
+}
+.page-hero h1 em {
+  font-style: italic; font-weight: 400; color: var(--accent-dark);
+}
+.page-hero__intro {
+  font-size: 17px; color: var(--ink-soft);
+  line-height: 1.65; margin-bottom: 16px;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.page-hero__meta {
+  font-size: 13px; color: var(--ink-muted);
+  display: flex; gap: 16px; align-items: center;
+  padding-top: 20px; padding-bottom: 28px;
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  margin-top: 28px;
 }
-h2 {
+.page-hero__meta strong { color: var(--ink-soft); }
+.page-hero__meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Highlight box: o diferencial principal */
+.highlight-box {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 28px 32px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.highlight-box__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 10px;
+}
+.highlight-box h3 {
   font-family: var(--font-display); font-weight: 600;
-  font-size: 24px; letter-spacing: -0.015em;
-  margin-top: 48px; margin-bottom: 14px; color: var(--ink);
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 10px;
 }
-h3 {
+.highlight-box p {
+  font-size: 15.5px; color: var(--ink-soft);
+  line-height: 1.65;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+
+/* Sumário (TOC) */
+.toc {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.toc h4 {
+  font-family: var(--font-display); font-size: 16px;
+  font-weight: 600; color: var(--ink); margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.toc ol {
+  list-style: none; counter-reset: toc;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 24px;
+}
+@media (max-width: 640px) { .toc ol { grid-template-columns: 1fr; } }
+.toc li {
+  counter-increment: toc; font-size: 14px;
+  padding: 4px 0; line-height: 1.5;
+}
+.toc li::before {
+  content: counter(toc) ". ";
+  color: var(--accent-dark); font-weight: 600; margin-right: 4px;
+}
+.toc a { color: var(--ink-soft); }
+.toc a:hover { color: var(--accent-dark); }
+
+/* Body */
+.policy-body {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+.policy-body section {
+  scroll-margin-top: 80px;
+  padding: 32px 0; border-top: 1px solid var(--border);
+}
+.policy-body section:first-child { border-top: 0; padding-top: 16px; }
+.policy-body h2 {
   font-family: var(--font-display); font-weight: 600;
-  font-size: 17px; margin-top: 28px; margin-bottom: 8px;
+  font-size: 26px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin-bottom: 16px;
+  display: flex; align-items: baseline; gap: 12px;
 }
-p { margin-bottom: 14px; color: var(--ink-soft); }
-ul { margin: 12px 0 14px 24px; color: var(--ink-soft); }
-li { margin-bottom: 6px; }
-a { color: var(--accent); }
-strong { color: var(--ink); }
-.box {
+.policy-body h2 .num {
+  font-size: 14px; color: var(--accent-dark);
+  font-weight: 700; letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+.policy-body h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 19px; line-height: 1.3;
+  color: var(--ink); margin: 24px 0 10px;
+}
+.policy-body p {
+  margin-bottom: 14px; color: var(--ink-soft);
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.policy-body p strong { color: var(--ink); font-weight: 600; }
+.policy-body ul, .policy-body ol {
+  margin: 12px 0 18px 24px; color: var(--ink-soft);
+}
+.policy-body li {
+  margin-bottom: 8px; line-height: 1.65;
+  text-align: justify; hyphens: auto;
+}
+.policy-body code {
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--surface-alt); padding: 2px 6px;
+  border-radius: 3px; border: 1px solid var(--border);
+  color: var(--accent-dark);
+}
+
+/* Quadros temáticos */
+.callout {
+  margin: 20px 0; padding: 18px 22px;
+  border-radius: var(--radius); border-left: 3px solid;
+}
+.callout--info {
+  background: var(--info-soft); border-color: var(--info);
+}
+.callout--warning {
+  background: var(--warning-soft); border-color: var(--warning);
+}
+.callout--accent {
+  background: var(--accent-soft); border-color: var(--accent);
+}
+.callout__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.callout--info .callout__label { color: var(--info); }
+.callout--warning .callout__label { color: var(--warning); }
+.callout--accent .callout__label { color: var(--accent-dark); }
+.callout p { margin-bottom: 0 !important; font-size: 14.5px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+/* Tabela de bases legais */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+table.legal-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; background: var(--surface);
+}
+table.legal-table th {
+  background: var(--surface-alt); text-align: left;
+  padding: 12px 16px; font-weight: 600; color: var(--ink);
+  border-bottom: 1px solid var(--border); font-size: 13px;
+  letter-spacing: 0.02em;
+}
+table.legal-table td {
+  padding: 12px 16px; color: var(--ink-soft);
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+table.legal-table tr:last-child td { border-bottom: 0; }
+table.legal-table strong { color: var(--ink); }
+
+/* Card de contato (DPO) */
+.contact-card {
+  margin: 24px 0; padding: 28px 32px;
   background: var(--surface); border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  padding: 22px 26px; border-radius: 4px; margin: 24px 0;
+  border-radius: var(--radius);
 }
-.back {
-  display: inline-block; margin-top: 40px;
-  font-size: 14px; color: var(--ink-soft); text-decoration: none;
+.contact-card h4 {
+  font-family: var(--font-display); font-size: 18px;
+  font-weight: 600; color: var(--ink); margin-bottom: 12px;
 }
-.back:hover { color: var(--accent); }
-footer {
-  margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border);
-  font-size: 13px; color: var(--ink-muted); text-align: center;
+.contact-card p {
+  font-size: 15px; color: var(--ink-soft); margin-bottom: 8px;
+  text-align: left !important;
 }
+.contact-card a { font-weight: 500; }
+
+/* Footer */
+.site-footer {
+  margin-top: 80px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -109,91 +323,503 @@ footer {
       <span class="brand__seal">D</span>
       <span>DANFSe<small>tools · gratuito</small></span>
     </a>
+    <nav class="nav">
+      <a href="index.html#converter">Converter</a>
+      <a href="index.html#tutorial">Como funciona</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#sobre">Sobre</a>
+    </nav>
   </div>
 </header>
 
-<main>
-  <div class="eyebrow">Documento legal</div>
-  <h1>Política de Privacidade</h1>
-  <div class="last-update">Última atualização: <span id="upd-date">02 de maio de 2026</span></div>
-
-  <div class="box">
-    <p style="margin-bottom: 0;">
-      <strong>Resumo em uma linha:</strong> a DANFSe.tools não coleta, não armazena e não envia seus arquivos XML para nenhum servidor. Toda a conversão acontece dentro do seu navegador.
-    </p>
+<article class="page-hero">
+  <nav class="breadcrumb">
+    <a href="index.html">Início</a><span>›</span>
+    Política de Privacidade
+  </nav>
+  <div class="page-hero__eyebrow">Conformidade LGPD · Lei 13.709/2018</div>
+  <h1>Política de <em>Privacidade</em></h1>
+  <p class="page-hero__intro">
+    Esta política descreve, de forma clara e honesta, como o <strong>DANFSe.tools</strong> coleta, trata e protege os dados pessoais dos seus usuários, em total conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018)</strong> e as melhores práticas internacionais de privacidade.
+  </p>
+  <p class="page-hero__intro">
+    Acreditamos que privacidade não é apenas uma exigência legal — é um <strong>compromisso ético</strong> com quem usa nossas ferramentas. Por isso, projetamos o site para coletar o mínimo possível de dados, e garantir que informações fiscais sensíveis nunca deixem o seu computador.
+  </p>
+  <div class="page-hero__meta">
+    <span><strong>Vigente desde:</strong> 4 de maio de 2026</span>
+    <span><strong>Última atualização:</strong> 4 de maio de 2026</span>
+    <span><strong>Versão:</strong> 1.0</span>
   </div>
+</article>
 
-  <h2>1. Quem somos</h2>
+<!-- O grande diferencial: processamento local -->
+<div class="highlight-box">
+  <div class="highlight-box__label">Compromisso fundamental</div>
+  <h3>Seus arquivos XML nunca saem do seu navegador</h3>
   <p>
-    DANFSe.tools (doravante "o serviço", "nós") é uma ferramenta web independente para conversão de arquivos XML da NFS-e Padrão Nacional em representação visual em PDF (DANFSe). Não temos vínculo com órgãos governamentais, prefeituras, Receita Federal ou Comitê Gestor da NFS-e.
+    Diferente de outros conversores online, o DANFSe.tools processa <strong>100% localmente</strong> os arquivos XML que você converte. A tecnologia que usamos (Pyodide / WebAssembly) executa Python diretamente no seu navegador. Nenhum dado fiscal — CNPJs, valores, descrições de serviço, retenções — é enviado, armazenado ou transmitido para nossos servidores ou de terceiros. <strong>É privacidade por engenharia, não apenas por promessa.</strong>
+  </p>
+</div>
+
+<!-- Sumário -->
+<nav class="toc" aria-label="Sumário">
+  <h4>Sumário</h4>
+  <ol>
+    <li><a href="#secao-1">Quem somos</a></li>
+    <li><a href="#secao-2">Definições importantes</a></li>
+    <li><a href="#secao-3">Quais dados coletamos</a></li>
+    <li><a href="#secao-4">Como tratamos arquivos XML</a></li>
+    <li><a href="#secao-5">Bases legais (LGPD Art. 7º)</a></li>
+    <li><a href="#secao-6">Cookies e tecnologias similares</a></li>
+    <li><a href="#secao-7">Compartilhamento de dados</a></li>
+    <li><a href="#secao-8">Google AdSense e publicidade</a></li>
+    <li><a href="#secao-9">Direitos do titular (Art. 18)</a></li>
+    <li><a href="#secao-10">Segurança da informação</a></li>
+    <li><a href="#secao-11">Retenção e eliminação</a></li>
+    <li><a href="#secao-12">Transferência internacional</a></li>
+    <li><a href="#secao-13">Crianças e adolescentes</a></li>
+    <li><a href="#secao-14">Encarregado (DPO) e contato</a></li>
+    <li><a href="#secao-15">Alterações nesta política</a></li>
+    <li><a href="#secao-16">Legislação aplicável</a></li>
+  </ol>
+</nav>
+
+<main class="policy-body">
+
+<section id="secao-1">
+  <h2><span class="num">01</span>Quem somos</h2>
+  <p>
+    O <strong>DANFSe.tools</strong> é uma ferramenta independente, gratuita, mantida por <strong>Welerson Fábio Brambila</strong>, com sede operacional em <strong>Cianorte/PR, Brasil</strong>. O site oferece um conversor de arquivos XML da NFS-e Padrão Nacional para PDF (DANFSe), além de conteúdo educacional voltado à comunidade contábil brasileira.
+  </p>
+  <p>
+    Não temos vínculo com órgãos governamentais, prefeituras, Receita Federal, Comitê Gestor da NFS-e (CGNFS-e) ou empresas de software fiscal. Somos um projeto técnico-educacional independente.
+  </p>
+  <p>
+    Para fins desta Política e da LGPD, o responsável pelo tratamento de dados pessoais (controlador) é a pessoa física identificada acima, que atua simultaneamente como <strong>Encarregado pelo Tratamento de Dados Pessoais (DPO)</strong>, conforme detalhado na seção 14.
+  </p>
+</section>
+
+<section id="secao-2">
+  <h2><span class="num">02</span>Definições importantes</h2>
+  <p>
+    Para que esta política seja realmente compreensível, vamos esclarecer alguns termos que a LGPD utiliza:
+  </p>
+  <ul>
+    <li><strong>Dado pessoal:</strong> qualquer informação relacionada a uma pessoa natural identificada ou identificável (nome, CPF, e-mail, IP, etc.).</li>
+    <li><strong>Titular:</strong> a pessoa natural a quem se referem os dados pessoais.</li>
+    <li><strong>Controlador:</strong> quem decide como e por que os dados serão tratados (no caso, o DANFSe.tools).</li>
+    <li><strong>Operador:</strong> quem trata os dados em nome do controlador (ex.: um provedor de hospedagem).</li>
+    <li><strong>Tratamento:</strong> qualquer operação com dados pessoais — coleta, uso, armazenamento, exclusão, etc.</li>
+    <li><strong>Base legal:</strong> a justificativa jurídica que autoriza o tratamento, conforme o artigo 7º da LGPD.</li>
+    <li><strong>Encarregado (DPO):</strong> pessoa indicada pelo controlador para atuar como canal de comunicação com titulares e a ANPD.</li>
+  </ul>
+</section>
+
+<section id="secao-3">
+  <h2><span class="num">03</span>Quais dados coletamos</h2>
+  <p>
+    Buscamos coletar apenas o mínimo de dados estritamente necessário para o funcionamento do site. Detalhamos abaixo cada categoria:
   </p>
 
-  <h2>2. Dados que NÃO coletamos</h2>
-  <p>O serviço foi explicitamente projetado para que <strong>seus arquivos nunca saiam do seu computador</strong>:</p>
+  <h3>3.1. Dados que NÃO coletamos</h3>
+  <p>
+    Para deixar absolutamente claro: <strong>não coletamos, em momento algum</strong>:
+  </p>
   <ul>
-    <li>Não recebemos, armazenamos ou processamos os XMLs que você converte;</li>
-    <li>Não temos acesso ao conteúdo dos arquivos (CNPJ de prestador/tomador, valores, descrições, chave de acesso);</li>
-    <li>Não exigimos cadastro, login ou qualquer identificação pessoal;</li>
-    <li>Os PDFs gerados são criados localmente pelo seu navegador e baixados diretamente para sua pasta de Downloads.</li>
+    <li>Dados contidos nos arquivos XML que você converte (CNPJs, valores, retenções, descrições de serviço — nada disso é enviado para nossos servidores)</li>
+    <li>Nome, e-mail ou qualquer cadastro pessoal (não exigimos cadastro)</li>
+    <li>Documentos de identificação (CPF, RG, etc.)</li>
+    <li>Dados financeiros ou de pagamento (a ferramenta é gratuita, não há transações)</li>
+    <li>Dados sensíveis de qualquer natureza (origem racial, religião, saúde, etc.)</li>
   </ul>
-  <p>Tecnicamente, isso é possível porque o conversor roda em <strong>Pyodide</strong> (Python compilado para WebAssembly), que executa todo o processamento dentro da aba do seu navegador. Você pode verificar isso abrindo as ferramentas de desenvolvedor do navegador (F12) → aba Network durante uma conversão: nenhuma requisição de upload é feita.</p>
 
-  <h2>3. Dados que coletamos automaticamente</h2>
-  <p>Quando você visita o site, alguns dados técnicos básicos podem ser coletados automaticamente, por nós ou por nossos parceiros (Google), para fins de análise de tráfego e exibição de anúncios:</p>
+  <h3>3.2. Dados de navegação coletados automaticamente</h3>
+  <p>
+    Como qualquer site na internet, recebemos automaticamente algumas informações técnicas do navegador, necessárias para o site funcionar e para análises agregadas de uso. São processadas pelos nossos provedores de infraestrutura:
+  </p>
+  <div class="table-wrap">
+    <table class="legal-table">
+      <thead>
+        <tr>
+          <th>Dado</th>
+          <th>Finalidade</th>
+          <th>Quem processa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Endereço IP (parcial)</strong></td>
+          <td>Segurança, prevenção a abusos e estatísticas geográficas em nível de país</td>
+          <td>Cloudflare (hospedagem)</td>
+        </tr>
+        <tr>
+          <td><strong>User-agent</strong></td>
+          <td>Identificar navegador e dispositivo para garantir compatibilidade</td>
+          <td>Cloudflare</td>
+        </tr>
+        <tr>
+          <td><strong>Páginas visitadas</strong></td>
+          <td>Estatísticas de tráfego e melhoria do conteúdo</td>
+          <td>Cloudflare Web Analytics</td>
+        </tr>
+        <tr>
+          <td><strong>URL de origem (referrer)</strong></td>
+          <td>Identificar de onde vieram os visitantes (Google, redes sociais, etc.)</td>
+          <td>Cloudflare</td>
+        </tr>
+        <tr>
+          <td><strong>Tempo na página</strong></td>
+          <td>Avaliar qualidade do conteúdo</td>
+          <td>Cloudflare</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout--info">
+    <div class="callout__label">Importante</div>
+    <p>O Cloudflare Web Analytics é projetado com privacidade em mente: <strong>não usa cookies de rastreamento</strong>, não cria perfis individuais e os dados são agregados estatisticamente. Não conseguimos identificar visitantes individualmente a partir desses dados.</p>
+  </div>
+
+  <h3>3.3. Dados que você nos envia voluntariamente</h3>
+  <p>
+    Caso você nos contate por e-mail (seção 14), receberemos as informações que você optar por compartilhar — tipicamente seu nome, e-mail e o conteúdo da mensagem. Esses dados são usados exclusivamente para responder à sua solicitação.
+  </p>
+</section>
+
+<section id="secao-4">
+  <h2><span class="num">04</span>Como tratamos arquivos XML</h2>
+  <p>
+    Esta é a seção mais importante para usuários da ferramenta de conversão. <strong>Leia com atenção:</strong>
+  </p>
+  <p>
+    Quando você seleciona um arquivo XML para converter em PDF, o seguinte acontece <strong>inteiramente dentro do seu navegador</strong>:
+  </p>
+  <ol>
+    <li>O navegador lê o arquivo XML do seu computador (sem upload para servidor).</li>
+    <li>Um interpretador Python (Pyodide / WebAssembly) é carregado uma única vez para dentro do navegador, na primeira conversão.</li>
+    <li>O código Python processa o XML localmente, gerando o PDF da DANFSe.</li>
+    <li>O PDF resultante é oferecido para download diretamente pelo navegador.</li>
+  </ol>
+  <div class="callout callout--accent">
+    <div class="callout__label">Privacidade por design</div>
+    <p>Em nenhum momento o conteúdo do arquivo XML — nem o próprio arquivo — é transmitido para nossos servidores, para o Cloudflare, ou para qualquer terceiro. Você pode comprovar isso desconectando seu computador da internet imediatamente após carregar o site: a conversão continuará funcionando normalmente.</p>
+  </div>
+  <p>
+    Como consequência prática:
+  </p>
   <ul>
-    <li>Endereço IP (de forma agregada/anônima);</li>
-    <li>Tipo e versão do navegador;</li>
-    <li>Sistema operacional;</li>
-    <li>Páginas visitadas e tempo de permanência;</li>
-    <li>Origem do acesso (referrer) — por exemplo, se você veio do Google.</li>
+    <li><strong>Não temos acesso aos seus XMLs.</strong> Não sabemos quais notas você converteu.</li>
+    <li><strong>Não armazenamos nada.</strong> Após fechar a aba, todos os dados desaparecem do navegador.</li>
+    <li><strong>Não há vazamento possível pelo nosso lado.</strong> Os dados nunca estiveram conosco.</li>
+    <li><strong>Conformidade LGPD inerente.</strong> Como não tratamos esses dados, não somos controladores nem operadores deles.</li>
   </ul>
-  <p>Esses dados são <strong>anônimos</strong> e usados apenas para entender o uso geral do serviço e para a operação dos anúncios.</p>
+</section>
 
-  <h2>4. Cookies e tecnologias similares</h2>
-  <p>Usamos cookies e armazenamento local (localStorage/cache) para:</p>
+<section id="secao-5">
+  <h2><span class="num">05</span>Bases legais (LGPD Art. 7º)</h2>
+  <p>
+    A LGPD exige que todo tratamento de dados pessoais tenha uma base legal específica. Detalhamos abaixo a base legal de cada tratamento que realizamos:
+  </p>
+  <div class="table-wrap">
+    <table class="legal-table">
+      <thead>
+        <tr>
+          <th>Tratamento</th>
+          <th>Base legal (Art. 7º)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Funcionamento técnico do site (logs, segurança, IPs)</td>
+          <td><strong>Inciso IX</strong> — legítimo interesse do controlador, observados o equilíbrio entre os interesses e os direitos do titular</td>
+        </tr>
+        <tr>
+          <td>Estatísticas agregadas de uso (analytics)</td>
+          <td><strong>Inciso IX</strong> — legítimo interesse para melhoria contínua do serviço</td>
+        </tr>
+        <tr>
+          <td>Resposta a contatos por e-mail</td>
+          <td><strong>Inciso V</strong> — execução de contrato ou procedimentos preliminares (atendimento solicitado pelo titular)</td>
+        </tr>
+        <tr>
+          <td>Cumprimento de obrigações legais (caso a ANPD ou Justiça nos solicite dados)</td>
+          <td><strong>Inciso II</strong> — cumprimento de obrigação legal ou regulatória</td>
+        </tr>
+        <tr>
+          <td>Publicidade contextual via Google AdSense (quando ativo)</td>
+          <td><strong>Inciso IX</strong> — legítimo interesse, com possibilidade de oposição pelo titular</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="secao-6">
+  <h2><span class="num">06</span>Cookies e tecnologias similares</h2>
+  <p>
+    Cookies são pequenos arquivos que sites podem armazenar no seu navegador. O DANFSe.tools utiliza um número mínimo de cookies, todos com finalidades técnicas ou estatísticas:
+  </p>
+
+  <h3>6.1. Cookies essenciais</h3>
+  <p>
+    Necessários para o funcionamento básico do site (preferências de exibição, segurança contra ataques automatizados). <strong>Não podem ser desativados</strong> sem comprometer a funcionalidade.
+  </p>
+
+  <h3>6.2. Cookies de análise (analytics)</h3>
+  <p>
+    Cloudflare Web Analytics, conforme detalhado na seção 3.2. Importante: este analytics em particular foi escolhido justamente porque <strong>não utiliza cookies de identificação persistente</strong>.
+  </p>
+
+  <h3>6.3. Cookies de publicidade</h3>
+  <p>
+    Quando o Google AdSense estiver ativo no site, ele poderá utilizar cookies para exibir anúncios contextualmente relevantes e medir desempenho (ver seção 8).
+  </p>
+
+  <h3>6.4. Como gerenciar cookies</h3>
+  <p>
+    Você pode, a qualquer momento, configurar seu navegador para bloquear ou apagar cookies. Os principais navegadores oferecem essas opções nas configurações de privacidade. Note que bloquear cookies essenciais pode afetar o funcionamento do site.
+  </p>
+</section>
+
+<section id="secao-7">
+  <h2><span class="num">07</span>Compartilhamento de dados</h2>
+  <p>
+    O DANFSe.tools <strong>não vende</strong>, <strong>não aluga</strong> e <strong>não compartilha</strong> dados pessoais com terceiros para fins comerciais. Os únicos compartilhamentos possíveis são com:
+  </p>
   <ul>
-    <li><strong>Cache do runtime Python (Pyodide):</strong> para que o site não precise baixar ~10 MB toda vez que você acessar. Esse cache fica no seu próprio navegador.</li>
-    <li><strong>Análise de tráfego:</strong> via Google Analytics (se ativado) para estatísticas anônimas de visita.</li>
-    <li><strong>Anúncios:</strong> via Google AdSense, conforme detalhado abaixo.</li>
+    <li><strong>Provedores de infraestrutura:</strong> Cloudflare (hospedagem e CDN), GitHub (código-fonte do site), Google (no caso de ativação do AdSense). Cada um atua como operador de dados, com obrigações contratuais e legais de proteção.</li>
+    <li><strong>Autoridades competentes:</strong> caso recebamos requisição formal e fundamentada de autoridade pública (Justiça, Ministério Público, ANPD), em estrito cumprimento de obrigação legal.</li>
   </ul>
-  <p>Você pode bloquear cookies nas configurações do seu navegador. O serviço continuará funcionando, mas a primeira execução pode ficar mais lenta a cada visita.</p>
+  <p>
+    Em todos os casos, exigimos dos parceiros de infraestrutura aderência a padrões compatíveis com a LGPD e GDPR (Regulamento Europeu de Proteção de Dados).
+  </p>
+</section>
 
-  <h2>5. Anúncios (Google AdSense)</h2>
-  <p>Para manter o serviço gratuito, exibimos anúncios fornecidos pelo <strong>Google AdSense</strong>. O Google e seus parceiros podem usar cookies para:</p>
+<section id="secao-8">
+  <h2><span class="num">08</span>Google AdSense e publicidade</h2>
+  <p>
+    Para sustentar a operação gratuita do site, podemos exibir anúncios fornecidos pela rede <strong>Google AdSense</strong>. A exibição de anúncios envolve tratamento de dados pelo Google, que atua como controlador independente desses dados.
+  </p>
+  <h3>8.1. O que o Google AdSense pode coletar</h3>
   <ul>
-    <li>Exibir anúncios mais relevantes com base na sua navegação anterior em outros sites;</li>
-    <li>Limitar a frequência com que um anúncio aparece;</li>
-    <li>Medir a eficácia das campanhas publicitárias.</li>
+    <li>Cookies para identificar interesses e exibir anúncios contextualmente relevantes</li>
+    <li>Endereço IP (para geolocalização aproximada)</li>
+    <li>Páginas visitadas no nosso site e em outros sites da rede Google</li>
+    <li>Interações com os anúncios (visualização, clique)</li>
   </ul>
-  <p>O Google utiliza um cookie chamado <strong>DART</strong> e tecnologias similares. Você pode desativar a personalização de anúncios em <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a> ou acessar <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">a política de privacidade do Google</a> para mais detalhes.</p>
-
-  <h2>6. LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)</h2>
-  <p>Como não coletamos dados pessoais identificáveis dos usuários do conversor (não há cadastro, não há upload de arquivos), o tratamento de dados pelo serviço é mínimo e fundamentado nas seguintes bases legais:</p>
+  <h3>8.2. Como você pode controlar</h3>
+  <p>
+    O Google oferece ferramentas para controle direto da publicidade personalizada:
+  </p>
   <ul>
-    <li><strong>Legítimo interesse</strong> (Art. 7º, IX): para análise de tráfego anônimo e operação técnica do site;</li>
-    <li><strong>Consentimento</strong> (Art. 7º, I): para cookies de personalização de anúncios, que podem ser desativados nas configurações do seu navegador ou da sua conta Google.</li>
+    <li><strong>Configurações de anúncios do Google:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a> — permite desativar a personalização de anúncios na sua conta Google.</li>
+    <li><strong>Política de privacidade do Google:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+    <li><strong>Como o Google usa cookies em publicidade:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a></li>
   </ul>
-  <p>Seus direitos como titular incluem acesso, correção, eliminação, portabilidade e revogação de consentimento. Como não armazenamos seus dados, esses direitos se aplicam principalmente aos cookies de terceiros (Google), gerenciáveis nas plataformas de cada parceiro.</p>
+  <div class="callout callout--info">
+    <div class="callout__label">Transparência</div>
+    <p>Os anúncios exibidos pelo Google AdSense são selecionados automaticamente pelo Google com base em critérios contextuais e comportamentais. <strong>Não temos controle direto sobre quais anúncios específicos serão exibidos</strong>, e não recebemos informações pessoais identificáveis sobre os usuários que visualizam ou clicam neles.</p>
+  </div>
+</section>
 
-  <h2>7. Sobre os PDFs gerados</h2>
-  <p>Os PDFs gerados pela ferramenta são <strong>representação visual</strong> da NFS-e (DANFSe) e <strong>não substituem o XML original</strong>, que é o documento fiscal eletrônico oficial. Use o PDF para arquivamento, conferência e comunicação. Para validação fiscal, sempre utilize a chave de acesso no portal oficial em <a href="https://www.nfse.gov.br" target="_blank" rel="noopener">nfse.gov.br</a>.</p>
-  <p>Não nos responsabilizamos por divergências entre a representação visual gerada e o conteúdo do XML original. Recomendamos sempre conferir o PDF gerado antes de utilizá-lo para fins fiscais ou contábeis.</p>
+<section id="secao-9">
+  <h2><span class="num">09</span>Direitos do titular (Art. 18)</h2>
+  <p>
+    A LGPD garante a você, como titular dos dados pessoais, uma série de direitos. Você pode exercer qualquer um deles entrando em contato conosco (seção 14):
+  </p>
+  <ul>
+    <li><strong>Confirmação da existência de tratamento</strong> — saber se tratamos algum dado seu</li>
+    <li><strong>Acesso aos dados</strong> — solicitar cópia dos dados que temos sobre você</li>
+    <li><strong>Correção</strong> — pedir que dados incompletos, inexatos ou desatualizados sejam corrigidos</li>
+    <li><strong>Anonimização, bloqueio ou eliminação</strong> — quando os dados forem desnecessários, excessivos ou tratados em desconformidade com a LGPD</li>
+    <li><strong>Portabilidade</strong> — solicitar a portabilidade dos dados a outro fornecedor de serviço, observados os segredos comercial e industrial</li>
+    <li><strong>Eliminação dos dados tratados com consentimento</strong> — exceto nos casos previstos em lei</li>
+    <li><strong>Informação sobre compartilhamentos</strong> — saber com quem compartilhamos seus dados</li>
+    <li><strong>Informação sobre não fornecimento de consentimento</strong> — saber as consequências de negar o consentimento</li>
+    <li><strong>Revogação do consentimento</strong> — quando o tratamento for baseado em consentimento</li>
+    <li><strong>Oposição ao tratamento</strong> — quando realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento da LGPD</li>
+  </ul>
+  <div class="callout callout--accent">
+    <div class="callout__label">Prazo de resposta</div>
+    <p>Comprometemo-nos a responder solicitações dos titulares em <strong>até 15 dias corridos</strong>, conforme o Art. 19 da LGPD. Em casos complexos, podemos estender esse prazo justificadamente, sempre comunicando você.</p>
+  </div>
+</section>
 
-  <h2>8. Segurança</h2>
-  <p>O site é servido exclusivamente via HTTPS, com certificado válido. Como nenhum dado seu é transmitido para servidores além do necessário para carregar a página em si, o risco de exposição de informações fiscais é estruturalmente eliminado.</p>
+<section id="secao-10">
+  <h2><span class="num">10</span>Segurança da informação</h2>
+  <p>
+    Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais que tratamos, conforme exigido pelo Art. 46 da LGPD:
+  </p>
+  <ul>
+    <li><strong>Criptografia em trânsito:</strong> todo o tráfego do site é protegido por HTTPS/TLS, fornecido pelo Cloudflare</li>
+    <li><strong>Processamento local:</strong> arquivos XML são processados exclusivamente no navegador do usuário, eliminando o risco de vazamento por servidor comprometido</li>
+    <li><strong>Hospedagem em provedor reconhecido:</strong> Cloudflare e GitHub são empresas com certificações de segurança internacionais (SOC 2, ISO 27001)</li>
+    <li><strong>Acesso restrito:</strong> apenas o controlador tem acesso à infraestrutura administrativa do site</li>
+    <li><strong>Princípio da minimização:</strong> coletamos apenas o estritamente necessário para o funcionamento do serviço</li>
+  </ul>
+  <p>
+    Apesar de todas as medidas de segurança, nenhum sistema online é 100% imune a riscos. Caso ocorra qualquer incidente de segurança que possa acarretar risco ou dano relevante aos titulares, comunicaremos a Autoridade Nacional de Proteção de Dados (ANPD) e os titulares afetados, conforme o Art. 48 da LGPD.
+  </p>
+</section>
 
-  <h2>9. Alterações nesta política</h2>
-  <p>Esta Política de Privacidade pode ser atualizada periodicamente. A data da última atualização aparece no topo desta página. Recomendamos revisão eventual.</p>
+<section id="secao-11">
+  <h2><span class="num">11</span>Retenção e eliminação de dados</h2>
+  <p>
+    Os dados pessoais serão tratados pelo período necessário ao cumprimento das finalidades para as quais foram coletados, observados os seguintes prazos:
+  </p>
+  <div class="table-wrap">
+    <table class="legal-table">
+      <thead>
+        <tr>
+          <th>Tipo de dado</th>
+          <th>Prazo de retenção</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Logs de acesso (IP, user-agent, timestamps)</td>
+          <td>Até 6 meses, conforme Art. 15 do Marco Civil da Internet</td>
+        </tr>
+        <tr>
+          <td>Estatísticas agregadas de uso (Cloudflare Analytics)</td>
+          <td>Até 6 meses (configuração padrão do provedor)</td>
+        </tr>
+        <tr>
+          <td>E-mails recebidos pelo canal de contato</td>
+          <td>Até 24 meses ou até a finalização do atendimento, o que for maior</td>
+        </tr>
+        <tr>
+          <td>Dados em XMLs convertidos pelo usuário</td>
+          <td><strong>Não armazenamos</strong> — processamento local no navegador</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Após o término dos prazos, os dados são eliminados ou anonimizados de forma segura, salvo os casos em que sejam necessários para cumprimento de obrigação legal, exercício regular de direitos em processos judiciais ou administrativos, ou estudo por órgão de pesquisa, conforme o Art. 16 da LGPD.
+  </p>
+</section>
 
-  <h2>10. Contato</h2>
-  <p>Dúvidas sobre esta política podem ser enviadas para o e-mail listado no rodapé do site principal.</p>
+<section id="secao-12">
+  <h2><span class="num">12</span>Transferência internacional de dados</h2>
+  <p>
+    Alguns dos provedores de infraestrutura que utilizamos (notadamente Cloudflare, GitHub e Google) operam internacionalmente, o que pode envolver transferência de dados pessoais para outros países, conforme o Art. 33 da LGPD.
+  </p>
+  <p>
+    Essas transferências ocorrem com observância das hipóteses legais aplicáveis, especialmente:
+  </p>
+  <ul>
+    <li>Países que ofereçam grau de proteção de dados adequado (conforme avaliação da ANPD)</li>
+    <li>Garantias específicas oferecidas pelos provedores (cláusulas contratuais padrão, certificações internacionais como GDPR e Privacy Shield equivalentes)</li>
+    <li>Tratamento estritamente necessário para a execução do contrato de prestação de serviço técnico</li>
+  </ul>
+</section>
 
-  <a href="index.html" class="back">← Voltar para a ferramenta</a>
+<section id="secao-13">
+  <h2><span class="num">13</span>Crianças e adolescentes</h2>
+  <p>
+    O DANFSe.tools é uma ferramenta voltada ao público profissional adulto (contadores, empresários, prestadores de serviço). <strong>Não direcionamos nosso conteúdo a menores de 18 anos</strong> e não coletamos conscientemente dados de crianças ou adolescentes.
+  </p>
+  <p>
+    Caso identifiquemos que recebemos dados pessoais de menores sem o consentimento adequado dos responsáveis legais, providenciaremos sua exclusão imediata, conforme o Art. 14 da LGPD.
+  </p>
+</section>
 
-  <footer>
-    DANFSe.tools &middot; Ferramenta independente sem vínculo com órgãos governamentais.
-  </footer>
+<section id="secao-14">
+  <h2><span class="num">14</span>Encarregado (DPO) e contato</h2>
+  <p>
+    Em conformidade com o Art. 41 da LGPD, designamos um Encarregado pelo Tratamento de Dados Pessoais para atuar como canal de comunicação entre o controlador, os titulares e a Autoridade Nacional de Proteção de Dados (ANPD).
+  </p>
+  <div class="contact-card">
+    <h4>Encarregado pelo Tratamento de Dados (DPO)</h4>
+    <p><strong>Nome:</strong> Welerson Fábio Brambila</p>
+    <p><strong>E-mail:</strong> <a href="mailto:welersonbrambila.fb@gmail.com">welersonbrambila.fb@gmail.com</a></p>
+    <p><strong>Localização:</strong> Cianorte/PR, Brasil</p>
+    <p style="margin-top: 14px; font-size: 13.5px; color: var(--ink-muted);">Para qualquer questão relacionada à privacidade, exercício de direitos ou dúvidas sobre esta política, utilize o e-mail acima. Indique no assunto da mensagem: <strong>"LGPD — [tipo de solicitação]"</strong>.</p>
+  </div>
+  <p>
+    Caso prefira, você também pode apresentar reclamações diretamente à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> em <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">gov.br/anpd</a>.
+  </p>
+</section>
+
+<section id="secao-15">
+  <h2><span class="num">15</span>Alterações nesta política</h2>
+  <p>
+    Esta Política de Privacidade poderá ser atualizada periodicamente, seja para refletir mudanças em nossos serviços, ajustes legais, ou aprimoramentos nas nossas práticas de privacidade.
+  </p>
+  <p>
+    A versão mais atual estará sempre publicada em <a href="https://conversor-danfse.pages.dev/privacidade.html">https://conversor-danfse.pages.dev/privacidade.html</a>, com a data de última atualização visível no topo do documento.
+  </p>
+  <p>
+    Em caso de alterações materiais (que afetem significativamente o tratamento dos seus dados), faremos esforços razoáveis para comunicar previamente os usuários, por meio de aviso destacado no site.
+  </p>
+</section>
+
+<section id="secao-16">
+  <h2><span class="num">16</span>Legislação aplicável</h2>
+  <p>
+    Esta Política de Privacidade é regida pelas leis da República Federativa do Brasil, em especial:
+  </p>
+  <ul>
+    <li><strong>Lei nº 13.709/2018</strong> — Lei Geral de Proteção de Dados Pessoais (LGPD)</li>
+    <li><strong>Lei nº 12.965/2014</strong> — Marco Civil da Internet</li>
+    <li><strong>Decreto nº 8.771/2016</strong> — Regulamento do Marco Civil da Internet</li>
+    <li><strong>Lei nº 8.078/1990</strong> — Código de Defesa do Consumidor (quando aplicável)</li>
+    <li><strong>Resoluções e orientações</strong> da Autoridade Nacional de Proteção de Dados (ANPD)</li>
+  </ul>
+  <p>
+    Eventuais controvérsias decorrentes desta política serão dirimidas no foro da Comarca de Cianorte/PR, salvo disposição legal em contrário que privilegie o foro do domicílio do consumidor.
+  </p>
+  <div class="callout callout--accent" style="margin-top: 32px;">
+    <div class="callout__label">Compromisso final</div>
+    <p>Esta política não é apenas um documento jurídico — é um <strong>compromisso público</strong> com cada pessoa que confia no DANFSe.tools. Trabalhamos para que privacidade, transparência e respeito ao usuário estejam no centro de cada decisão técnica e operacional do projeto.</p>
+  </div>
+</section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html#converter">Converter</a></li>
+        <li><a href="index.html#tutorial">Como funciona</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Recursos oficiais</h5>
+      <ul>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
+        <li><a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Welerson Fábio Brambila · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
