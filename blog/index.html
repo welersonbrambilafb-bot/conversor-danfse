@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog — Tudo sobre NFS-e Padrão Nacional, DANFSe e XML | DANFSe.tools</title>
+
+<meta name="description" content="Artigos práticos sobre NFS-e Padrão Nacional, DANFSe, conversão de XML, retenções tributárias, NT 004, NT 007 e tudo que contadores e empresários precisam saber." />
+<meta name="keywords" content="blog NFS-e, blog DANFSe, artigos NFS-e Nacional, tutorial NFS-e, conversão XML PDF, retenções fiscais, ISSQN" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Blog DANFSe.tools — NFS-e Padrão Nacional explicada" />
+<meta property="og:description" content="Conteúdo prático sobre conversão de XML, leiautes, retenções e operações com a NFS-e Nacional." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --max: 1200px; --max-narrow: 860px; --radius: 8px; --radius-lg: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.6;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(at 12% 8%, rgba(92, 184, 92, 0.04) 0, transparent 40%),
+    radial-gradient(at 88% 92%, rgba(31, 41, 55, 0.04) 0, transparent 45%);
+  background-attachment: fixed;
+}
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink);
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); text-decoration: none; }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 64px 24px 32px; text-align: center;
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.hero__eyebrow::before, .hero__eyebrow::after {
+  content: ""; width: 24px; height: 1px;
+  background: var(--accent-dark); display: inline-block;
+}
+.hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(34px, 5vw, 52px); line-height: 1.06;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: italic; font-weight: 400; color: var(--accent-dark);
+}
+.hero p {
+  font-size: 18px; color: var(--ink-soft);
+  max-width: 60ch; margin: 0 auto;
+}
+
+.articles {
+  max-width: var(--max); margin: 48px auto;
+  padding: 0 24px;
+}
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 980px) { .articles__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .articles__grid { grid-template-columns: 1fr; } }
+
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: all 0.2s ease;
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  position: relative; overflow: hidden;
+}
+.article-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+  text-decoration: none;
+}
+.article-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 0;
+  background: var(--accent);
+  transition: height 0.25s ease;
+}
+.article-card:hover::before { height: 100%; }
+
+.article-card__cat {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 12px;
+}
+.article-card h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 19px; line-height: 1.25;
+  letter-spacing: -0.01em; color: var(--ink);
+  margin-bottom: 10px;
+}
+.article-card p {
+  font-size: 14.5px; color: var(--ink-soft);
+  line-height: 1.55; margin-bottom: 18px;
+  flex-grow: 1;
+}
+.article-card__meta {
+  font-size: 12px; color: var(--ink-muted);
+  display: flex; gap: 12px; align-items: center;
+  margin-top: auto; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.article-card__meta span::before {
+  content: "•"; margin-right: 12px; color: var(--border);
+}
+.article-card__meta span:first-child::before { content: none; margin: 0; }
+
+.group-title {
+  max-width: var(--max); margin: 56px auto 24px; padding: 0 24px;
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--ink); border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+}
+.group-title em {
+  font-style: italic; color: var(--accent-dark);
+  font-weight: 400; font-size: 14px;
+  margin-left: 12px; letter-spacing: 0;
+}
+.group-title__count {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: normal;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  margin-left: 10px;
+  letter-spacing: 0.05em;
+}
+
+/* Empty state — quando um grupo não tem nenhum artigo publicado ainda */
+.empty-group {
+  max-width: var(--max); margin: 0 auto; padding: 0 24px 24px;
+  font-size: 14px; color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* Caso especial: nenhum artigo publicado em geral */
+.no-posts {
+  max-width: var(--max-narrow); margin: 80px auto;
+  padding: 48px 32px; text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.no-posts h2 {
+  font-family: var(--font-display); font-size: 24px; font-weight: 600;
+  margin-bottom: 12px; color: var(--ink);
+}
+.no-posts p {
+  color: var(--ink-soft); font-size: 16px;
+}
+
+.site-footer {
+  margin-top: 96px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="../index.html" class="brand" aria-label="DANFSe.tools — página inicial">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#converter">Converter</a>
+      <a href="../index.html#tutorial">Como funciona</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#sobre">Sobre</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__eyebrow" id="hero-count">Blog</div>
+  <h1>Tudo sobre <em>NFS-e Padrão Nacional</em></h1>
+  <p>Artigos práticos para contadores, empresários e MEIs que precisam entender, emitir, conferir e arquivar notas fiscais de serviço eletrônicas no novo padrão nacional.</p>
+</section>
+
+<!-- O conteúdo da listagem é injetado aqui pelo JavaScript abaixo, com base
+     em posts.js (a "lista mestre" de artigos publicados). -->
+<main id="blog-content"></main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="../index.html#converter">Converter</a></li>
+        <li><a href="../index.html#tutorial">Como funciona</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+        <li><a href="../privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Recursos oficiais</h5>
+      <ul>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
+        <li><a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener">Receita Federal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- Lista mestre de artigos publicados -->
+<script src="posts.js"></script>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ===================================================================
+   RENDERIZAÇÃO DA LISTAGEM A PARTIR DE posts.js
+   =================================================================== */
+
+const GROUPS = [
+  {
+    key: "basico",
+    title: "Conceitos fundamentais",
+    subtitle: "comece por aqui"
+  },
+  {
+    key: "tecnico",
+    title: "Aprofundamento técnico",
+    subtitle: "para contadores e analistas fiscais"
+  },
+  {
+    key: "operacional",
+    title: "Dúvidas operacionais",
+    subtitle: "do dia a dia"
+  }
+];
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function renderCard(post) {
+  return `
+    <a href="${escapeHtml(post.slug)}.html" class="article-card">
+      <div class="article-card__cat">${escapeHtml(post.category)}</div>
+      <h2>${escapeHtml(post.title)}</h2>
+      <p>${escapeHtml(post.excerpt)}</p>
+      <div class="article-card__meta">
+        <span>Leitura: ${escapeHtml(post.readTime)}</span>
+        <span>${escapeHtml(post.level)}</span>
+      </div>
+    </a>
+  `;
+}
+
+function renderBlog() {
+  const posts = window.POSTS || [];
+  const container = document.getElementById('blog-content');
+  const heroCount = document.getElementById('hero-count');
+
+  // Atualiza o contador no hero (ex: "Blog · 7 artigos")
+  if (posts.length === 0) {
+    heroCount.textContent = "Blog";
+  } else if (posts.length === 1) {
+    heroCount.textContent = "Blog · 1 artigo";
+  } else {
+    heroCount.textContent = "Blog · " + posts.length + " artigos";
+  }
+
+  // Caso não haja nenhum artigo publicado
+  if (posts.length === 0) {
+    container.innerHTML = `
+      <div class="no-posts">
+        <h2>Em breve, novos artigos</h2>
+        <p>Estamos preparando conteúdos para você. Volte em breve para conferir.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Renderiza cada grupo, mas só se tiver pelo menos 1 artigo nele
+  let html = '';
+  for (const group of GROUPS) {
+    const groupPosts = posts.filter(p => p.group === group.key);
+    if (groupPosts.length === 0) continue; // pula grupos vazios
+
+    const countLabel = groupPosts.length === 1
+      ? '1 artigo' : groupPosts.length + ' artigos';
+
+    html += `
+      <h2 class="group-title">
+        ${escapeHtml(group.title)}
+        <em>${escapeHtml(group.subtitle)}</em>
+        <span class="group-title__count">· ${countLabel}</span>
+      </h2>
+      <section class="articles">
+        <div class="articles__grid">
+          ${groupPosts.map(renderCard).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  container.innerHTML = html;
+}
+
+// Renderiza assim que o script é executado
+renderBlog();
+</script>
+
+</body>
+</html>
