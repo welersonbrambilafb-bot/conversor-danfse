@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Erros comuns ao emitir NFS-e e como resolver | DANFSe.tools</title>
+
+<meta name="description" content="Os erros mais frequentes na emissão de NFS-e Padrão Nacional, suas causas técnicas e como corrigir cada um deles para evitar perda de tempo." />
+<meta name="keywords" content="erros NFS-e, problemas emissão nota fiscal, erro NFS-e nacional, rejeição NFS-e" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="DANFSe.tools" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/blog/erros-comuns-emitir-nfse.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Erros comuns ao emitir NFS-e e como resolver" />
+<meta property="og:description" content="Os erros mais frequentes na emissão de NFS-e Padrão Nacional, suas causas técnicas e como corrigir cada um deles para evitar perda de tempo." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Erros comuns ao emitir NFS-e e como resolver",
+  "description": "Os erros mais frequentes na emissão de NFS-e Padrão Nacional, suas causas técnicas e como corrigir cada um deles para evitar perda de tempo.",
+  "author": { "@type": "Organization", "name": "DANFSe.tools" },
+  "publisher": { "@type": "Organization", "name": "DANFSe.tools" },
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04"
+}
+</script>
+
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 760px; --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-dark); }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; text-decoration: none; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.article-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 56px 24px 24px;
+}
+.breadcrumb {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+.article-cat {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 14px; display: inline-block;
+}
+.article-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(30px, 5vw, 44px); line-height: 1.1;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
+}
+.article-meta {
+  font-size: 13px; color: var(--ink-muted);
+  display: flex; gap: 16px; align-items: center;
+  padding-bottom: 24px; border-bottom: 1px solid var(--border);
+}
+.article-meta span::before {
+  content: "·"; margin-right: 12px;
+}
+.article-meta span:first-child::before { content: none; }
+
+.article-body {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+.article-body p {
+  margin-bottom: 18px; color: var(--ink-soft);
+  text-align: justify; text-justify: inter-word;
+  hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+}
+.article-body p strong { color: var(--ink); font-weight: 600; }
+.article-body h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 28px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 44px 0 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 12px 0 22px 24px; color: var(--ink-soft);
+}
+.article-body li {
+  margin-bottom: 8px;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+}
+.article-body code {
+  font-family: var(--font-mono); font-size: 14px;
+  background: var(--surface-alt); padding: 2px 6px;
+  border-radius: 3px; border: 1px solid var(--border);
+  color: var(--accent-dark);
+}
+
+.tool-cta {
+  margin: 32px 0; padding: 28px 30px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent); border-radius: var(--radius);
+}
+.tool-cta__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 10px;
+}
+.tool-cta h4 {
+  font-family: var(--font-display); font-size: 21px;
+  font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 8px; color: var(--ink);
+}
+.tool-cta p {
+  margin-bottom: 16px !important;
+  color: var(--ink-soft); font-size: 15.5px;
+  text-align: left; hyphens: none;
+}
+.tool-cta a.btn {
+  display: inline-block; background: var(--ink); color: var(--surface);
+  padding: 10px 20px; border-radius: var(--radius);
+  font-weight: 600; font-size: 14.5px; text-decoration: none;
+  transition: background 0.15s;
+}
+.tool-cta a.btn:hover { background: var(--accent-dark); text-decoration: none; }
+
+.ad-inline {
+  margin: 32px 0; background: var(--surface-alt);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  min-height: 100px; display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-muted); padding: 24px; text-align: center;
+}
+
+.read-also {
+  max-width: var(--max-narrow); margin: 32px auto 0; padding: 0 24px;
+}
+.read-also h3 {
+  font-family: var(--font-display); font-size: 22px; font-weight: 600;
+  letter-spacing: -0.015em; margin-bottom: 18px; color: var(--ink);
+}
+.read-also__grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+@media (max-width: 640px) { .read-also__grid { grid-template-columns: 1fr; } }
+.read-also__card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px;
+  text-decoration: none; transition: all 0.2s;
+}
+.read-also__card:hover {
+  border-color: var(--accent); transform: translateY(-2px);
+  text-decoration: none; box-shadow: 0 4px 12px rgba(31,41,55,0.06);
+}
+.read-also__cat {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 8px;
+}
+.read-also__card h4 {
+  font-family: var(--font-display); font-size: 16px; font-weight: 600;
+  line-height: 1.3; color: var(--ink); letter-spacing: -0.01em;
+}
+
+.site-footer {
+  margin-top: 80px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; text-decoration: none; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="../index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#converter">Converter</a>
+      <a href="../index.html#tutorial">Como funciona</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#sobre">Sobre</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article-hero">
+  <nav class="breadcrumb">
+    <a href="../index.html">Início</a><span>›</span>
+    <a href="index.html">Blog</a><span>›</span>
+    Erros comuns ao emitir NFS-e
+  </nav>
+  <span class="article-cat">Solução de problemas</span>
+  <h1>Erros comuns ao emitir NFS-e e como resolver</h1>
+  <div class="article-meta">
+    <span>Leitura: 8 min</span>
+    <span>Nível intermediário</span>
+    <span>Atualizado em maio de 2026</span>
+  </div>
+</article>
+
+<section class="article-body">
+  <p>Quem emite NFS-e regularmente acaba se deparando com erros — alguns triviais, outros frustrantes. O sistema do Padrão Nacional é rigoroso na validação dos dados, e qualquer inconsistência impede a emissão. Saber identificar rapidamente o erro e como corrigi-lo economiza horas e evita dores de cabeça.</p>
+  <p>Este artigo lista os erros mais comuns reportados por emissores de NFS-e Padrão Nacional, com explicação da causa e solução prática para cada um.</p>
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 1</div>
+  <h2>Erro: CNPJ inválido ou não localizado</h2>
+  <p>Um dos erros mais frequentes. Acontece quando o CNPJ do prestador, do tomador ou do intermediário está digitado errado, ou está com situação cadastral irregular na Receita.</p>
+  <p><strong>Causas:</strong> erro de digitação (típica troca de dígito), CNPJ baixado/inativo, CNPJ ainda não totalmente validado em sistemas federais.</p>
+  <p><strong>Solução:</strong> verificar o CNPJ no <a href='https://www.gov.br/receitafederal' target='_blank' rel='noopener'>portal da Receita Federal</a> antes de tentar reemitir. Se o CNPJ está ativo lá mas o sistema da NFS-e não aceita, aguarde 24h (sincronização) e tente novamente.</p>
+  <h2>Erro: município de prestação não autorizado</h2>
+  <p>Quando você tenta emitir uma NFS-e indicando um município que ainda não aderiu ao Padrão Nacional, ou que tem regras específicas que bloqueiam aquela operação.</p>
+  <p><strong>Solução:</strong> confirme se o município emissor adotou o Padrão Nacional. Se sim, verifique o tipo de serviço — algumas atividades podem exigir regras locais específicas. Em último caso, consulte o suporte da prefeitura.</p>
+  <h2>Erro: código de serviço (cTribNac) inválido</h2>
+  <p>Acontece quando o código tributário nacional escolhido não existe na tabela vigente, ou não é compatível com a atividade declarada do prestador (CNAE).</p>
+  <p><strong>Solução:</strong> use a consulta de códigos no portal nacional para encontrar o código correto. Verifique também os CNAEs cadastrados do seu CNPJ — se o serviço prestado não está coberto por nenhum CNAE seu, é necessário atualizar o cadastro antes.</p>
+  <h2>Erro: valor de retenção fora dos limites permitidos</h2>
+  <p>Quando o valor declarado de retenção (ISS retido, IRRF, etc.) excede o que a regra tributária permite — por exemplo, ISS retido com alíquota fora da tabela do município, ou IRRF acima do percentual padrão.</p>
+  <p><strong>Solução:</strong> conferir as alíquotas aplicáveis ao tipo de serviço e ao regime tributário do prestador. Sistemas bem configurados calculam isso automaticamente; se você está digitando manualmente, verifique tabelas oficiais.</p>
+  <h2>Erro: regime tributário incompatível com retenção</h2>
+  <p>Caso clássico: prestador do Simples Nacional ou MEI tenta emitir nota com retenção federal indevida. O sistema rejeita.</p>
+  <p><strong>Solução:</strong> revisar o regime tributário cadastrado para o prestador. Se realmente é Simples ou MEI, não pode haver retenção (com raras exceções). Se é Lucro Presumido/Real, configurar o sistema para incluir corretamente.</p>
+
+  <div class="tool-cta">
+    <div class="tool-cta__label">Ferramenta gratuita</div>
+    <h4>Converta XML em DANFSe (PDF) sem instalar nada</h4>
+    <p>Se você tem arquivos XML de NFS-e Padrão Nacional e precisa gerar PDFs para conferência ou arquivamento, nosso conversor gratuito faz isso em segundos. O processamento acontece no seu navegador — seus arquivos não são enviados para servidor algum.</p>
+    <a href="../index.html#converter" class="btn">Abrir o conversor →</a>
+  </div>
+  <h2>Erro: data de emissão futura</h2>
+  <p>Não é permitido emitir uma NFS-e com data futura. A data deve ser a do dia da emissão (ou anterior, em casos específicos).</p>
+  <p><strong>Solução:</strong> ajustar a data para a data corrente. Se você está corrigindo uma nota emitida com atraso, ainda assim a data é a do momento da emissão real.</p>
+
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 2</div>
+  <h2>Erro: descrição do serviço muito curta ou genérica</h2>
+  <p>Alguns sistemas (e algumas prefeituras) exigem descrição mínima do serviço para evitar lançamentos genéricos. “Serviços” ou “Consultoria” pode ser rejeitado.</p>
+  <p><strong>Solução:</strong> escrever uma descrição específica. Em vez de “serviços profissionais”, escrever “Consultoria em gestão financeira para o cliente X, mês de abril/2026”. Mais detalhe geralmente é melhor.</p>
+  <h2>Erro: sistema do portal indisponível</h2>
+  <p>Indisponibilidades do portal nacional acontecem ocasionalmente, especialmente em finais de mês com volume alto de emissões.</p>
+  <p><strong>Solução:</strong> aguardar e tentar novamente em alguns minutos. Se for crítico, consulte o status do sistema no portal de status oficial. Em situações extraordinárias, há contingência (emissão posterior com data retroativa, dentro de regras específicas).</p>
+  <h2>Erro: certificado digital inválido ou expirado</h2>
+  <p>Para emissões via sistema próprio (não pelo portal nacional), é necessário certificado digital. Se o certificado expirou, está revogado, ou não tem cadeia de confiança válida, o sistema rejeita.</p>
+  <p><strong>Solução:</strong> verificar a validade do certificado. Se está expirado, renovar com a autoridade certificadora. Se está válido mas o sistema não aceita, conferir cadeia de certificados intermediários e raiz.</p>
+  <h2>Erro: número da NFS-e duplicado</h2>
+  <p>Quando há tentativa de emissão com número sequencial já usado pelo emitente. Sistema rejeita para preservar unicidade.</p>
+  <p><strong>Solução:</strong> ajustar o sistema emissor para usar o próximo número disponível. Em sistemas bem configurados, isso é automático; falhas geralmente vêm de migrações de banco de dados ou intervenções manuais.</p>
+  <h2>Quando o erro persiste</h2>
+  <p>Se o erro persiste mesmo após as soluções acima, o caminho é:</p>
+  <ol>
+    <li><strong>Coletar evidências:</strong> screenshot da tela de erro, número de protocolo (se houver), XML que tentou emitir.</li>
+    <li><strong>Consultar suporte do sistema:</strong> se você usa um software de emissão, abrir chamado com a equipe deles.</li>
+    <li><strong>Consultar a prefeitura ou Receita:</strong> em casos onde o erro vem do portal oficial, o suporte da prefeitura ou da Receita pode ajudar.</li>
+    <li><strong>Comunidades técnicas:</strong> fóruns de contadores e desenvolvedores frequentemente têm a resposta — alguém já passou pelo mesmo problema.</li>
+  </ol>
+
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 3</div>
+</section>
+
+<section class="read-also">
+  <h3>Leia também</h3>
+  <div class="read-also__grid">
+    <a href="como-cancelar-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Operacional</div>
+      <h4>Como cancelar uma NFS-e</h4>
+    </a>
+    <a href="retencao-issqn-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Tributário</div>
+      <h4>Retenção de ISSQN na NFS-e</h4>
+    </a>
+    <a href="tributacao-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Tributário</div>
+      <h4>Tributação da NFS-e: regimes</h4>
+    </a>
+    <a href="nfse-nacional-mei.html" class="read-also__card">
+      <div class="read-also__cat">MEI</div>
+      <h4>NFS-e Nacional para MEI</h4>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="../index.html#converter">Converter</a></li>
+        <li><a href="../index.html#tutorial">Como funciona</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+        <li><a href="../privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Recursos oficiais</h5>
+      <ul>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
+        <li><a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener">Receita Federal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

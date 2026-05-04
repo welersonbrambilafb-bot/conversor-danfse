@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NT 004 vs NT 007: o que mudou no leiaute da NFS-e | DANFSe.tools</title>
+
+<meta name="description" content="Comparativo técnico entre as Notas Técnicas 004 e 007 do Padrão Nacional da NFS-e: novos campos, mudanças de versão, e impacto na emissão e parsing." />
+<meta name="keywords" content="NT 004 NFS-e, NT 007 NFS-e, leiaute 1.00 1.01, mudanças NFS-e nacional, nota técnica NFSe" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="DANFSe.tools" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/blog/nt-004-vs-nt-007.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="NT 004 vs NT 007: o que mudou no leiaute da NFS-e" />
+<meta property="og:description" content="Comparativo técnico entre as Notas Técnicas 004 e 007 do Padrão Nacional da NFS-e: novos campos, mudanças de versão, e impacto na emissão e parsing." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NT 004 vs NT 007: o que mudou no leiaute da NFS-e",
+  "description": "Comparativo técnico entre as Notas Técnicas 004 e 007 do Padrão Nacional da NFS-e: novos campos, mudanças de versão, e impacto na emissão e parsing.",
+  "author": { "@type": "Organization", "name": "DANFSe.tools" },
+  "publisher": { "@type": "Organization", "name": "DANFSe.tools" },
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04"
+}
+</script>
+
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 760px; --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-dark); }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; text-decoration: none; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.article-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 56px 24px 24px;
+}
+.breadcrumb {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+.article-cat {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 14px; display: inline-block;
+}
+.article-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(30px, 5vw, 44px); line-height: 1.1;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
+}
+.article-meta {
+  font-size: 13px; color: var(--ink-muted);
+  display: flex; gap: 16px; align-items: center;
+  padding-bottom: 24px; border-bottom: 1px solid var(--border);
+}
+.article-meta span::before {
+  content: "·"; margin-right: 12px;
+}
+.article-meta span:first-child::before { content: none; }
+
+.article-body {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+.article-body p {
+  margin-bottom: 18px; color: var(--ink-soft);
+  text-align: justify; text-justify: inter-word;
+  hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+}
+.article-body p strong { color: var(--ink); font-weight: 600; }
+.article-body h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 28px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 44px 0 16px;
+}
+.article-body ul, .article-body ol {
+  margin: 12px 0 22px 24px; color: var(--ink-soft);
+}
+.article-body li {
+  margin-bottom: 8px;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+}
+.article-body code {
+  font-family: var(--font-mono); font-size: 14px;
+  background: var(--surface-alt); padding: 2px 6px;
+  border-radius: 3px; border: 1px solid var(--border);
+  color: var(--accent-dark);
+}
+
+.tool-cta {
+  margin: 32px 0; padding: 28px 30px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent); border-radius: var(--radius);
+}
+.tool-cta__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 10px;
+}
+.tool-cta h4 {
+  font-family: var(--font-display); font-size: 21px;
+  font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 8px; color: var(--ink);
+}
+.tool-cta p {
+  margin-bottom: 16px !important;
+  color: var(--ink-soft); font-size: 15.5px;
+  text-align: left; hyphens: none;
+}
+.tool-cta a.btn {
+  display: inline-block; background: var(--ink); color: var(--surface);
+  padding: 10px 20px; border-radius: var(--radius);
+  font-weight: 600; font-size: 14.5px; text-decoration: none;
+  transition: background 0.15s;
+}
+.tool-cta a.btn:hover { background: var(--accent-dark); text-decoration: none; }
+
+.ad-inline {
+  margin: 32px 0; background: var(--surface-alt);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  min-height: 100px; display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-muted); padding: 24px; text-align: center;
+}
+
+.read-also {
+  max-width: var(--max-narrow); margin: 32px auto 0; padding: 0 24px;
+}
+.read-also h3 {
+  font-family: var(--font-display); font-size: 22px; font-weight: 600;
+  letter-spacing: -0.015em; margin-bottom: 18px; color: var(--ink);
+}
+.read-also__grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+@media (max-width: 640px) { .read-also__grid { grid-template-columns: 1fr; } }
+.read-also__card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px;
+  text-decoration: none; transition: all 0.2s;
+}
+.read-also__card:hover {
+  border-color: var(--accent); transform: translateY(-2px);
+  text-decoration: none; box-shadow: 0 4px 12px rgba(31,41,55,0.06);
+}
+.read-also__cat {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 8px;
+}
+.read-also__card h4 {
+  font-family: var(--font-display); font-size: 16px; font-weight: 600;
+  line-height: 1.3; color: var(--ink); letter-spacing: -0.01em;
+}
+
+.site-footer {
+  margin-top: 80px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; text-decoration: none; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="../index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#converter">Converter</a>
+      <a href="../index.html#tutorial">Como funciona</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#sobre">Sobre</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article-hero">
+  <nav class="breadcrumb">
+    <a href="../index.html">Início</a><span>›</span>
+    <a href="index.html">Blog</a><span>›</span>
+    NT 004 vs NT 007
+  </nav>
+  <span class="article-cat">Técnico</span>
+  <h1>NT 004 vs NT 007: o que mudou no leiaute da NFS-e</h1>
+  <div class="article-meta">
+    <span>Leitura: 10 min</span>
+    <span>Nível avançado</span>
+    <span>Atualizado em maio de 2026</span>
+  </div>
+</article>
+
+<section class="article-body">
+  <p>Para os sistemas que emitem ou processam NFS-e Padrão Nacional, as <strong>notas técnicas</strong> publicadas pelo CGNFS-e são o documento de referência absoluto. Elas definem cada campo do XML, regras de validação, formatos aceitos. Quando muda a NT, muda o sistema.</p>
+  <p>Duas das notas técnicas mais importantes até o momento são a <strong>NT 004</strong> (versão 1.00 do leiaute) e a <strong>NT 007</strong> (versão 1.01). Este artigo explica o que mudou entre elas, por que mudou, e o que fazer para que sistemas que processam XMLs continuem funcionando com ambas.</p>
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 1</div>
+  <h2>Como funciona o sistema de notas técnicas do CGNFS-e</h2>
+  <p>O Comitê Gestor publica notas técnicas numeradas que evoluem o leiaute do XML. Cada NT corrige ambiguidades anteriores, adiciona novos campos para suportar regras tributárias, ou ajusta validações. Sistemas certificados precisam acompanhar.</p>
+  <p>A NT vem acompanhada de um arquivo XSD (XML Schema Definition) — uma definição formal e máquina-legível do leiaute. Ferramentas usam o XSD para validar XMLs antes de aceitá-los. Quando a NT muda, o XSD muda junto, e XMLs gerados na versão antiga podem precisar ser ajustados.</p>
+  <h2>NT 004 — versão 1.00 do leiaute</h2>
+  <p>A NT 004 estabeleceu o leiaute inicial de produção da NFS-e Padrão Nacional. Foi a versão que entrou em vigor com a obrigatoriedade para MEI a partir de 2023, e que muitos sistemas e municípios adotaram primeiro.</p>
+  <p>Características principais:</p>
+  <ul>
+    <li>Versão XML: 1.00</li>
+    <li>Estrutura básica de prestador, tomador, intermediário, valores, tributos</li>
+    <li>Tratamento de retenção ISSQN com códigos <code>tpRetISSQN</code></li>
+    <li>Tratamento de retenções federais (IRRF, INSS, CSLL, PIS, COFINS) consolidado</li>
+    <li>Códigos de regime tributário do prestador (Simples, MEI, Lucro Presumido, Real)</li>
+    <li>Estrutura de descrição e atividade econômica do serviço</li>
+  </ul>
+  <h2>NT 007 — versão 1.01 do leiaute</h2>
+  <p>A NT 007 (vigente) traz refinamentos baseados em feedback de uso real do leiaute 1.00. Não é uma reformulação, é uma evolução incremental. XMLs em 1.00 continuam válidos, mas novos sistemas devem gerar em 1.01.</p>
+  <p>Principais mudanças:</p>
+  <ul>
+    <li>Versão XML: 1.01</li>
+    <li>Refinamento no tratamento de PIS/COFINS (separação clara entre retidos e débitos próprios)</li>
+    <li>Novos códigos para <code>tpRetPisCofins</code> com semântica mais clara</li>
+    <li>Ajustes na validação de campos opcionais (alguns campos ficaram facultativos onde antes eram obrigatórios)</li>
+    <li>Correções pontuais em descrições e regras de validação</li>
+    <li>Compatibilidade retroativa: XMLs emitidos em 1.00 continuam válidos para fins fiscais</li>
+  </ul>
+  <h2>Como identificar a versão de um XML</h2>
+  <p>Abra o XML e procure o atributo <code>versao</code> na tag raiz. Algo como:</p>
+  <p><code>&lt;NFSe versao="1.00" xmlns="..."&gt;</code> → leiaute NT 004</p>
+  <p><code>&lt;NFSe versao="1.01" xmlns="..."&gt;</code> → leiaute NT 007</p>
+  <p>Para sistemas que processam XMLs em volume, ler esse atributo logo no início do parsing é boa prática — permite escolher o conjunto correto de regras a aplicar.</p>
+  <h2>Impacto nas retenções de PIS/COFINS</h2>
+  <p>Esta foi uma das áreas com maior refinamento na NT 007. No leiaute 1.00, o tratamento de PIS/COFINS gerou várias dúvidas: o XML não distinguia claramente quando o valor era retido (responsabilidade do tomador) ou apurado pelo próprio prestador (débito próprio).</p>
+  <p>A NT 007 introduziu códigos mais claros no campo <code>tpRetPisCofins</code>:</p>
+  <ul>
+    <li><code>1</code> — Retido (tomador faz a retenção)</li>
+    <li><code>2</code> — Não Retido (prestador apura normalmente)</li>
+  </ul>
+  <p>Sistemas que ainda processam XMLs antigos podem encontrar valores como <code>3</code> ou <code>4</code> em campos <code>tpRetPisCofins</code>. Esses são resquícios da NT 004 e devem ser tratados como compatibilidade retroativa.</p>
+
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 2</div>
+  <h2>Implicações práticas para desenvolvedores</h2>
+  <p>Para sistemas que produzem ou consomem XMLs de NFS-e:</p>
+  <ol>
+    <li>Mantenha um <strong>parser dual</strong> — capaz de ler 1.00 e 1.01. Não despreze a 1.00, ainda há volumes substanciais em circulação.</li>
+    <li><strong>Nunca confie cegamente no campo <code>versao</code></strong> — valide sempre contra o XSD correto. XMLs maliciosos ou corrompidos podem ter versão declarada que não bate com a estrutura real.</li>
+    <li><strong>Para emissão</strong>, use sempre a versão mais recente disponível (1.01). XMLs emitidos em 1.00 hoje, embora tecnicamente aceitos, sinalizam sistema desatualizado.</li>
+    <li><strong>Acompanhe novas NTs</strong> — o CGNFS-e publica atualizações regularmente. Sistemas estagnados ficam para trás.</li>
+  </ol>
+
+  <div class="tool-cta">
+    <div class="tool-cta__label">Ferramenta gratuita</div>
+    <h4>Converta XML em DANFSe (PDF) sem instalar nada</h4>
+    <p>Se você tem arquivos XML de NFS-e Padrão Nacional e precisa gerar PDFs para conferência ou arquivamento, nosso conversor gratuito faz isso em segundos. O processamento acontece no seu navegador — seus arquivos não são enviados para servidor algum.</p>
+    <a href="../index.html#converter" class="btn">Abrir o conversor →</a>
+  </div>
+  <h2>Implicações para contadores e tomadores</h2>
+  <p>Para quem não programa, mas processa XMLs no dia a dia: a maior implicação prática é que <strong>os campos visíveis na DANFSe podem variar ligeiramente</strong> entre versões. Notas em 1.01 trazem retenções de PIS/COFINS com semântica mais clara; notas em 1.00 podem ter ambiguidade nesse campo.</p>
+  <p>Em caso de dúvida, sempre consulte a NFS-e diretamente em nfse.gov.br pela chave de acesso. O portal mostra a interpretação oficial dos dados.</p>
+  <h2>O que esperar à frente</h2>
+  <p>Novas NTs continuarão sendo publicadas. Algumas mudanças vindouras já sinalizadas pelo CGNFS-e incluem refinamentos em campos de identificação de intermediário, melhorias no tratamento de operações com construção civil, e novos códigos tributários.</p>
+  <p>Para se manter atualizado, acompanhe o portal <a href='https://www.gov.br/nfse' target='_blank' rel='noopener'>gov.br/nfse</a>, onde as notas técnicas são publicadas. Para o usuário final, sistemas e ferramentas bem mantidas absorvem essas mudanças automaticamente. Para desenvolvedores e equipes técnicas, é trabalho contínuo de adaptação.</p>
+
+  <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 3</div>
+</section>
+
+<section class="read-also">
+  <h3>Leia também</h3>
+  <div class="read-also__grid">
+    <a href="o-que-e-padrao-nacional-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Conceitos</div>
+      <h4>O que é o Padrão Nacional</h4>
+    </a>
+    <a href="nfse-nacional-vs-municipal-abrasf.html" class="read-also__card">
+      <div class="read-also__cat">Comparativo</div>
+      <h4>NFS-e Nacional vs Municipal</h4>
+    </a>
+    <a href="retencao-irrf-inss-csll-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Tributário</div>
+      <h4>Retenção de IRRF, INSS, CSLL</h4>
+    </a>
+    <a href="erros-comuns-emitir-nfse.html" class="read-also__card">
+      <div class="read-also__cat">Solução</div>
+      <h4>Erros comuns ao emitir NFS-e</h4>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="../index.html#converter">Converter</a></li>
+        <li><a href="../index.html#tutorial">Como funciona</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+        <li><a href="../privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Recursos oficiais</h5>
+      <ul>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
+        <li><a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener">Receita Federal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

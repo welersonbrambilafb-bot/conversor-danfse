@@ -41,7 +41,6 @@ body {
 a { color: var(--accent-dark); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Header — igual ao site principal */
 .site-header {
   position: sticky; top: 0; z-index: 50;
   background: rgba(245, 247, 244, 0.85);
@@ -77,7 +76,6 @@ a:hover { text-decoration: underline; }
 .nav a:hover { color: var(--accent-dark); text-decoration: none; }
 @media (max-width: 720px) { .nav { display: none; } }
 
-/* Hero */
 .hero {
   max-width: var(--max-narrow); margin: 0 auto;
   padding: 64px 24px 32px; text-align: center;
@@ -105,7 +103,6 @@ a:hover { text-decoration: underline; }
   max-width: 60ch; margin: 0 auto;
 }
 
-/* Cards de artigos */
 .articles {
   max-width: var(--max); margin: 48px auto;
   padding: 0 24px;
@@ -152,7 +149,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-display); font-weight: 600;
   font-size: 19px; line-height: 1.25;
   letter-spacing: -0.01em; color: var(--ink);
-  margin-bottom: 10px; flex-grow: 0;
+  margin-bottom: 10px;
 }
 .article-card p {
   font-size: 14.5px; color: var(--ink-soft);
@@ -170,7 +167,6 @@ a:hover { text-decoration: underline; }
 }
 .article-card__meta span:first-child::before { content: none; margin: 0; }
 
-/* Group title separators */
 .group-title {
   max-width: var(--max); margin: 56px auto 24px; padding: 0 24px;
   font-family: var(--font-display);
@@ -183,8 +179,39 @@ a:hover { text-decoration: underline; }
   font-weight: 400; font-size: 14px;
   margin-left: 12px; letter-spacing: 0;
 }
+.group-title__count {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: normal;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  margin-left: 10px;
+  letter-spacing: 0.05em;
+}
 
-/* Footer */
+/* Empty state — quando um grupo não tem nenhum artigo publicado ainda */
+.empty-group {
+  max-width: var(--max); margin: 0 auto; padding: 0 24px 24px;
+  font-size: 14px; color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* Caso especial: nenhum artigo publicado em geral */
+.no-posts {
+  max-width: var(--max-narrow); margin: 80px auto;
+  padding: 48px 32px; text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.no-posts h2 {
+  font-family: var(--font-display); font-size: 24px; font-weight: 600;
+  margin-bottom: 12px; color: var(--ink);
+}
+.no-posts p {
+  color: var(--ink-soft); font-size: 16px;
+}
+
 .site-footer {
   margin-top: 96px; background: var(--ink); color: #B8C0CC;
   padding: 48px 24px 28px; font-size: 14px;
@@ -233,184 +260,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 </header>
 
 <section class="hero">
-  <div class="hero__eyebrow">Blog · 15 artigos</div>
+  <div class="hero__eyebrow" id="hero-count">Blog</div>
   <h1>Tudo sobre <em>NFS-e Padrão Nacional</em></h1>
   <p>Artigos práticos para contadores, empresários e MEIs que precisam entender, emitir, conferir e arquivar notas fiscais de serviço eletrônicas no novo padrão nacional.</p>
 </section>
 
-<!-- ============================ GRUPO 1 — BÁSICO ============================ -->
-<h2 class="group-title">Conceitos fundamentais <em>comece por aqui</em></h2>
-<section class="articles">
-  <div class="articles__grid">
-
-    <a href="o-que-e-danfse.html" class="article-card">
-      <div class="article-card__cat">Conceitos</div>
-      <h2>O que é DANFSe e qual a diferença para a NFS-e</h2>
-      <p>Entenda a relação entre o documento fiscal eletrônico (NFS-e) e sua representação visual em PDF (DANFSe), e por que os dois existem.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 6 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="como-abrir-xml-nfse.html" class="article-card">
-      <div class="article-card__cat">Operacional</div>
-      <h2>Como abrir um arquivo XML de NFS-e</h2>
-      <p>Métodos seguros para visualizar o conteúdo de um XML de nota fiscal de serviço, sem alterar o arquivo original.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 5 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="converter-xml-nfse-pdf.html" class="article-card">
-      <div class="article-card__cat">Tutorial</div>
-      <h2>Como converter XML de NFS-e em PDF</h2>
-      <p>Passo a passo completo para gerar a DANFSe (PDF) a partir do XML, em lote ou individualmente, sem instalar programas.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 7 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="o-que-e-padrao-nacional-nfse.html" class="article-card">
-      <div class="article-card__cat">Conceitos</div>
-      <h2>O que é o Padrão Nacional da NFS-e</h2>
-      <p>O CGNFS-e e a unificação do leiaute em todo o Brasil: o que muda para emissores, tomadores e contadores.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 8 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="chave-acesso-nfse.html" class="article-card">
-      <div class="article-card__cat">Conceitos</div>
-      <h2>Para que serve a chave de acesso da NFS-e</h2>
-      <p>Os 50 dígitos que identificam unicamente cada NFS-e: como ler, validar e usar a chave de acesso no portal nacional.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 6 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ============================ GRUPO 2 — TÉCNICO ============================ -->
-<h2 class="group-title">Aprofundamento técnico <em>para contadores e analistas fiscais</em></h2>
-<section class="articles">
-  <div class="articles__grid">
-
-    <a href="nfse-nacional-vs-municipal-abrasf.html" class="article-card">
-      <div class="article-card__cat">Comparativo</div>
-      <h2>NFS-e Padrão Nacional vs NFS-e Municipal (ABRASF)</h2>
-      <p>Diferenças de leiaute, namespace, campos, validação e migração entre os dois padrões coexistentes.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 9 min</span>
-        <span>Intermediário</span>
-      </div>
-    </a>
-
-    <a href="nt-004-vs-nt-007.html" class="article-card">
-      <div class="article-card__cat">Técnico</div>
-      <h2>NT 004 vs NT 007: o que mudou no leiaute da NFS-e</h2>
-      <p>Histórico das notas técnicas, mudanças nas versões 1.00 e 1.01, novos campos, e impacto na emissão e parsing.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 10 min</span>
-        <span>Avançado</span>
-      </div>
-    </a>
-
-    <a href="retencao-issqn-nfse.html" class="article-card">
-      <div class="article-card__cat">Tributário</div>
-      <h2>Quando o ISSQN é retido na NFS-e e como identificar no XML</h2>
-      <p>Tipos de retenção (tomador, intermediário, prestador), código tpRetISSQN no XML, e responsabilidade tributária.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 8 min</span>
-        <span>Intermediário</span>
-      </div>
-    </a>
-
-    <a href="retencao-irrf-inss-csll-nfse.html" class="article-card">
-      <div class="article-card__cat">Tributário</div>
-      <h2>Retenção de IRRF, INSS e CSLL em NFS-e</h2>
-      <p>Quando cada retenção federal incide, alíquotas, bases de cálculo e como aparecem no XML e na DANFSe.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 10 min</span>
-        <span>Intermediário</span>
-      </div>
-    </a>
-
-    <a href="tributacao-nfse.html" class="article-card">
-      <div class="article-card__cat">Tributário</div>
-      <h2>Tributação da NFS-e: regimes, alíquotas e códigos</h2>
-      <p>Simples Nacional, MEI, Lucro Presumido e Real: como cada regime aparece nos campos tributários da NFS-e.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 9 min</span>
-        <span>Intermediário</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ============================ GRUPO 3 — OPERACIONAL ============================ -->
-<h2 class="group-title">Dúvidas operacionais <em>do dia a dia</em></h2>
-<section class="articles">
-  <div class="articles__grid">
-
-    <a href="como-cancelar-nfse.html" class="article-card">
-      <div class="article-card__cat">Operacional</div>
-      <h2>Como cancelar uma NFS-e Padrão Nacional</h2>
-      <p>Prazos, motivos válidos, procedimento no portal nacional e implicações fiscais do cancelamento.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 7 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="nfse-nacional-mei.html" class="article-card">
-      <div class="article-card__cat">MEI</div>
-      <h2>NFS-e Nacional para MEI: como funciona</h2>
-      <p>Obrigatoriedade, emissão pelo portal nacional, isenção de ISS e cuidados específicos do Microempreendedor Individual.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 6 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="erros-comuns-emitir-nfse.html" class="article-card">
-      <div class="article-card__cat">Solução de problemas</div>
-      <h2>Erros comuns ao emitir NFS-e e como resolver</h2>
-      <p>Os 10 erros que mais aparecem no portal nacional, suas causas técnicas e como corrigir cada um deles.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 8 min</span>
-        <span>Intermediário</span>
-      </div>
-    </a>
-
-    <a href="onde-guardar-xml-nfse.html" class="article-card">
-      <div class="article-card__cat">Compliance</div>
-      <h2>Onde guardar arquivos XML de NFS-e</h2>
-      <p>Prazo legal de guarda (5 anos), formatos válidos, backup, e diferença entre arquivar XML e arquivar PDF.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 7 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-    <a href="consultar-nfse-portal-nacional.html" class="article-card">
-      <div class="article-card__cat">Tutorial</div>
-      <h2>Como consultar uma NFS-e pelo portal nacional</h2>
-      <p>Caminhos no nfse.gov.br, consulta por chave de acesso, validação por CNPJ e download do XML autenticado.</p>
-      <div class="article-card__meta">
-        <span>Leitura: 6 min</span>
-        <span>Iniciante</span>
-      </div>
-    </a>
-
-  </div>
-</section>
+<!-- O conteúdo da listagem é injetado aqui pelo JavaScript abaixo, com base
+     em posts.js (a "lista mestre" de artigos publicados). -->
+<main id="blog-content"></main>
 
 <footer class="site-footer">
   <div class="site-footer__inner">
@@ -449,8 +306,107 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </footer>
 
+<!-- Lista mestre de artigos publicados -->
+<script src="posts.js"></script>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ===================================================================
+   RENDERIZAÇÃO DA LISTAGEM A PARTIR DE posts.js
+   =================================================================== */
+
+const GROUPS = [
+  {
+    key: "basico",
+    title: "Conceitos fundamentais",
+    subtitle: "comece por aqui"
+  },
+  {
+    key: "tecnico",
+    title: "Aprofundamento técnico",
+    subtitle: "para contadores e analistas fiscais"
+  },
+  {
+    key: "operacional",
+    title: "Dúvidas operacionais",
+    subtitle: "do dia a dia"
+  }
+];
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function renderCard(post) {
+  return `
+    <a href="${escapeHtml(post.slug)}.html" class="article-card">
+      <div class="article-card__cat">${escapeHtml(post.category)}</div>
+      <h2>${escapeHtml(post.title)}</h2>
+      <p>${escapeHtml(post.excerpt)}</p>
+      <div class="article-card__meta">
+        <span>Leitura: ${escapeHtml(post.readTime)}</span>
+        <span>${escapeHtml(post.level)}</span>
+      </div>
+    </a>
+  `;
+}
+
+function renderBlog() {
+  const posts = window.POSTS || [];
+  const container = document.getElementById('blog-content');
+  const heroCount = document.getElementById('hero-count');
+
+  // Atualiza o contador no hero (ex: "Blog · 7 artigos")
+  if (posts.length === 0) {
+    heroCount.textContent = "Blog";
+  } else if (posts.length === 1) {
+    heroCount.textContent = "Blog · 1 artigo";
+  } else {
+    heroCount.textContent = "Blog · " + posts.length + " artigos";
+  }
+
+  // Caso não haja nenhum artigo publicado
+  if (posts.length === 0) {
+    container.innerHTML = `
+      <div class="no-posts">
+        <h2>Em breve, novos artigos</h2>
+        <p>Estamos preparando conteúdos para você. Volte em breve para conferir.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Renderiza cada grupo, mas só se tiver pelo menos 1 artigo nele
+  let html = '';
+  for (const group of GROUPS) {
+    const groupPosts = posts.filter(p => p.group === group.key);
+    if (groupPosts.length === 0) continue; // pula grupos vazios
+
+    const countLabel = groupPosts.length === 1
+      ? '1 artigo' : groupPosts.length + ' artigos';
+
+    html += `
+      <h2 class="group-title">
+        ${escapeHtml(group.title)}
+        <em>${escapeHtml(group.subtitle)}</em>
+        <span class="group-title__count">· ${countLabel}</span>
+      </h2>
+      <section class="articles">
+        <div class="articles__grid">
+          ${groupPosts.map(renderCard).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  container.innerHTML = html;
+}
+
+// Renderiza assim que o script é executado
+renderBlog();
 </script>
 
 </body>

@@ -441,23 +441,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 <!-- Read also -->
 <section class="read-also">
   <h3>Leia também</h3>
-  <div class="read-also__grid">
-    <a href="como-abrir-xml-nfse.html" class="read-also__card">
-      <div class="read-also__cat">Operacional</div>
-      <h4>Como abrir um arquivo XML de NFS-e</h4>
-    </a>
-    <a href="converter-xml-nfse-pdf.html" class="read-also__card">
-      <div class="read-also__cat">Tutorial</div>
-      <h4>Como converter XML de NFS-e em PDF</h4>
-    </a>
-    <a href="chave-acesso-nfse.html" class="read-also__card">
-      <div class="read-also__cat">Conceitos</div>
-      <h4>Para que serve a chave de acesso da NFS-e</h4>
-    </a>
-    <a href="o-que-e-padrao-nacional-nfse.html" class="read-also__card">
-      <div class="read-also__cat">Conceitos</div>
-      <h4>O que é o Padrão Nacional da NFS-e</h4>
-    </a>
+  <div class="read-also__grid" id="read-also-grid">
+    <!-- Cards injetados via JS a partir de posts.js -->
   </div>
 </section>
 
@@ -498,8 +483,44 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </footer>
 
+<!-- Lista mestre de artigos publicados -->
+<script src="posts.js"></script>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ===================================================================
+   "LEIA TAMBÉM" — popula com até 4 outros artigos publicados
+   =================================================================== */
+(function() {
+  const SLUG_ATUAL = "o-que-e-danfse"; // identificador deste artigo
+  const posts = (window.POSTS || []).filter(p => p.slug !== SLUG_ATUAL);
+  const grid = document.getElementById('read-also-grid');
+  const section = grid ? grid.closest('.read-also') : null;
+
+  if (!grid || !section) return;
+
+  // Se não há outros artigos publicados, esconde a seção inteira
+  if (posts.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  // Mostra até 4 outros artigos (preferência: mesmo grupo primeiro)
+  const sugestoes = posts.slice(0, 4);
+  grid.innerHTML = sugestoes.map(p => `
+    <a href="${escapeHtml(p.slug)}.html" class="read-also__card">
+      <div class="read-also__cat">${escapeHtml(p.category)}</div>
+      <h4>${escapeHtml(p.title)}</h4>
+    </a>
+  `).join('');
+})();
 </script>
 
 </body>

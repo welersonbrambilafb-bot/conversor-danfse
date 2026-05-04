@@ -1,0 +1,142 @@
+{
+  "_comentario": "Edite este arquivo para controlar quais artigos aparecem no blog. Para PUBLICAR um artigo: adicione o objeto correspondente na lista 'articles' abaixo. Para DESPUBLICAR: remova o objeto (ou deixe-o em '_articles_rascunho'). A ordem na lista é a ordem de exibição (primeiro fica em cima).",
+  "articles": [
+    {
+      "slug": "o-que-e-danfse",
+      "category": "Conceitos",
+      "level": "Iniciante",
+      "readMin": 6,
+      "title": "O que é DANFSe e qual a diferença para a NFS-e",
+      "summary": "Entenda a relação entre o documento fiscal eletrônico (NFS-e) e sua representação visual em PDF (DANFSe), e por que os dois existem.",
+      "group": 1
+    }
+  ],
+  "_articles_rascunho": [
+    {
+      "slug": "como-abrir-xml-nfse",
+      "category": "Operacional",
+      "level": "Iniciante",
+      "readMin": 5,
+      "title": "Como abrir um arquivo XML de NFS-e",
+      "summary": "Métodos seguros para visualizar o conteúdo de um XML de nota fiscal de serviço, sem alterar o arquivo original.",
+      "group": 1
+    },
+    {
+      "slug": "converter-xml-nfse-pdf",
+      "category": "Tutorial",
+      "level": "Iniciante",
+      "readMin": 7,
+      "title": "Como converter XML de NFS-e em PDF",
+      "summary": "Passo a passo completo para gerar a DANFSe (PDF) a partir do XML, em lote ou individualmente, sem instalar programas.",
+      "group": 1
+    },
+    {
+      "slug": "o-que-e-padrao-nacional-nfse",
+      "category": "Conceitos",
+      "level": "Iniciante",
+      "readMin": 8,
+      "title": "O que é o Padrão Nacional da NFS-e",
+      "summary": "O CGNFS-e e a unificação do leiaute em todo o Brasil: o que muda para emissores, tomadores e contadores.",
+      "group": 1
+    },
+    {
+      "slug": "chave-acesso-nfse",
+      "category": "Conceitos",
+      "level": "Iniciante",
+      "readMin": 6,
+      "title": "Para que serve a chave de acesso da NFS-e",
+      "summary": "Os 50 dígitos que identificam unicamente cada NFS-e: como ler, validar e usar a chave de acesso no portal nacional.",
+      "group": 1
+    },
+    {
+      "slug": "nfse-nacional-vs-municipal-abrasf",
+      "category": "Comparativo",
+      "level": "Intermediário",
+      "readMin": 9,
+      "title": "NFS-e Padrão Nacional vs NFS-e Municipal (ABRASF)",
+      "summary": "Diferenças de leiaute, namespace, campos, validação e migração entre os dois padrões coexistentes.",
+      "group": 2
+    },
+    {
+      "slug": "nt-004-vs-nt-007",
+      "category": "Técnico",
+      "level": "Avançado",
+      "readMin": 10,
+      "title": "NT 004 vs NT 007: o que mudou no leiaute da NFS-e",
+      "summary": "Histórico das notas técnicas, mudanças nas versões 1.00 e 1.01, novos campos, e impacto na emissão e parsing.",
+      "group": 2
+    },
+    {
+      "slug": "retencao-issqn-nfse",
+      "category": "Tributário",
+      "level": "Intermediário",
+      "readMin": 8,
+      "title": "Quando o ISSQN é retido na NFS-e e como identificar no XML",
+      "summary": "Tipos de retenção (tomador, intermediário, prestador), código tpRetISSQN no XML, e responsabilidade tributária.",
+      "group": 2
+    },
+    {
+      "slug": "retencao-irrf-inss-csll-nfse",
+      "category": "Tributário",
+      "level": "Intermediário",
+      "readMin": 10,
+      "title": "Retenção de IRRF, INSS e CSLL em NFS-e",
+      "summary": "Quando cada retenção federal incide, alíquotas, bases de cálculo e como aparecem no XML e na DANFSe.",
+      "group": 2
+    },
+    {
+      "slug": "tributacao-nfse",
+      "category": "Tributário",
+      "level": "Intermediário",
+      "readMin": 9,
+      "title": "Tributação da NFS-e: regimes, alíquotas e códigos",
+      "summary": "Simples Nacional, MEI, Lucro Presumido e Real: como cada regime aparece nos campos tributários da NFS-e.",
+      "group": 2
+    },
+    {
+      "slug": "como-cancelar-nfse",
+      "category": "Operacional",
+      "level": "Iniciante",
+      "readMin": 7,
+      "title": "Como cancelar uma NFS-e Padrão Nacional",
+      "summary": "Prazos, motivos válidos, procedimento no portal nacional e implicações fiscais do cancelamento.",
+      "group": 3
+    },
+    {
+      "slug": "nfse-nacional-mei",
+      "category": "MEI",
+      "level": "Iniciante",
+      "readMin": 6,
+      "title": "NFS-e Nacional para MEI: como funciona",
+      "summary": "Obrigatoriedade, emissão pelo portal nacional, isenção de ISS e cuidados específicos do Microempreendedor Individual.",
+      "group": 3
+    },
+    {
+      "slug": "erros-comuns-emitir-nfse",
+      "category": "Solução de problemas",
+      "level": "Intermediário",
+      "readMin": 8,
+      "title": "Erros comuns ao emitir NFS-e e como resolver",
+      "summary": "Os erros que mais aparecem no portal nacional, suas causas técnicas e como corrigir cada um deles.",
+      "group": 3
+    },
+    {
+      "slug": "onde-guardar-xml-nfse",
+      "category": "Compliance",
+      "level": "Iniciante",
+      "readMin": 7,
+      "title": "Onde guardar arquivos XML de NFS-e",
+      "summary": "Prazo legal de guarda (5 anos), formatos válidos, backup, e diferença entre arquivar XML e arquivar PDF.",
+      "group": 3
+    },
+    {
+      "slug": "consultar-nfse-portal-nacional",
+      "category": "Tutorial",
+      "level": "Iniciante",
+      "readMin": 6,
+      "title": "Como consultar uma NFS-e pelo portal nacional",
+      "summary": "Caminhos no nfse.gov.br, consulta por chave de acesso, validação por CNPJ e download do XML autenticado.",
+      "group": 3
+    }
+  ]
+}
