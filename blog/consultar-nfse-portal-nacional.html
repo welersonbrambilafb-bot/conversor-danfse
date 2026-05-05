@@ -8,7 +8,7 @@
 <meta name="description" content="Caminhos no nfse.gov.br para consultar NFS-e por chave de acesso, validar pelo CNPJ e fazer download do XML autenticado." />
 <meta name="keywords" content="consultar NFS-e, nfse.gov.br consulta, validar NFS-e, baixar XML NFS-e, portal nacional" />
 <meta name="robots" content="index, follow" />
-<meta name="author" content="DANFSe.tools" />
+<meta name="author" content="Welerson Fábio Brambila" />
 <link rel="canonical" href="https://conversor-danfse.pages.dev/blog/consultar-nfse-portal-nacional.html" />
 
 <meta property="og:type" content="article" />
@@ -250,6 +250,90 @@ a:hover { text-decoration: underline; }
 ::selection { background: var(--accent); color: var(--surface); }
 *:focus { outline: none; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Bloco de assinatura do autor (após o conteúdo do artigo) */
+.author-bio {
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+@media (max-width: 640px) {
+  .author-bio {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px;
+  }
+}
+.author-bio__avatar {
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 30px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .author-bio__avatar {
+    margin: 0 auto;
+  }
+}
+.author-bio__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 6px;
+}
+.author-bio__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.author-bio__credentials {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 12px;
+}
+.author-bio__desc {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.author-bio__links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.author-bio__links a {
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+.author-bio__links a:hover {
+  text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
@@ -360,6 +444,23 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
   <div class="ad-inline" aria-label="publicidade">Espaço reservado para anúncio · ad inline 3</div>
 </section>
+<!-- Bloco de assinatura do autor (E-E-A-T para Google e AdSense) -->
+<aside class="author-bio" aria-label="Sobre o autor deste artigo">
+  <div class="author-bio__avatar">W</div>
+  <div>
+    <div class="author-bio__label">Sobre o autor</div>
+    <div class="author-bio__name">Welerson Fábio Brambila</div>
+    <div class="author-bio__credentials">Contador · CRC PR-084402/O-0</div>
+    <p class="author-bio__desc">
+      Bacharel em Ciências Contábeis pela Universidade Estadual de Maringá (UEM), com mais de 10 anos de experiência prática em contabilidade fiscal e tributária. Atua em escritório de contabilidade em Cianorte/PR e é o idealizador e mantenedor do DANFSe.tools.
+    </p>
+    <div class="author-bio__links">
+      <a href="https://br.linkedin.com/in/welerson-f%C3%A1bio-brambila" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:welersonbrambila.fb@gmail.com">E-mail</a>
+      <a href="../sobre.html">Sobre o projeto</a>
+    </div>
+  </div>
+</aside>
 
 <section class="read-also">
   <h3>Leia também</h3>
