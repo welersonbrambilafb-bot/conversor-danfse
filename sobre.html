@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sobre o DANFSe.tools — Quem está por trás do projeto | DANFSe.tools</title>
+
+<meta name="description" content="Conheça o DANFSe.tools, projeto independente mantido por contador brasileiro com objetivo de oferecer um conversor gratuito de XML para DANFSe, com foco em privacidade e qualidade técnica." />
+<meta name="keywords" content="sobre DANFSe.tools, autor DANFSe, projeto NFS-e, ferramenta gratuita contador, conversor XML PDF" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Welerson Fábio Brambila" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/sobre.html" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Sobre o DANFSe.tools" />
+<meta property="og:description" content="Projeto independente para a comunidade contábil brasileira. Privacidade, gratuidade e qualidade técnica." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Sobre o DANFSe.tools",
+  "description": "História e propósito do DANFSe.tools — ferramenta gratuita de conversão de XML para DANFSe.",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Welerson Fábio Brambila",
+    "jobTitle": "Contador",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cianorte",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "sameAs": ["https://br.linkedin.com/in/welerson-f%C3%A1bio-brambila"]
+  }
+}
+</script>
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 760px; --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); text-decoration: none; }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.about-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 64px 24px 32px;
+}
+.breadcrumb {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+
+.about-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.about-hero__eyebrow::before {
+  content: ""; width: 24px; height: 1px;
+  background: var(--accent-dark); display: inline-block;
+}
+.about-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(34px, 5vw, 50px); line-height: 1.08;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 20px;
+}
+.about-hero h1 em {
+  font-style: italic; font-weight: 400; color: var(--accent-dark);
+}
+.about-hero__lede {
+  font-size: 19px; color: var(--ink-soft);
+  line-height: 1.6;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+
+.story-block {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 0 24px 32px;
+}
+.story-block h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 28px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 36px 0 16px;
+}
+.story-block h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 20px; letter-spacing: -0.01em;
+  color: var(--ink); margin: 28px 0 10px;
+}
+.story-block p {
+  margin-bottom: 16px; color: var(--ink-soft);
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.story-block p strong { color: var(--ink); font-weight: 600; }
+.story-block ul {
+  margin: 12px 0 18px 24px; color: var(--ink-soft);
+}
+.story-block li {
+  margin-bottom: 8px;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+
+.quote {
+  margin: 28px 0; padding: 24px 32px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.quote p {
+  font-family: var(--font-display);
+  font-style: italic; font-size: 19px;
+  line-height: 1.55; color: var(--ink);
+  margin-bottom: 0 !important;
+  text-align: left !important;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px; margin: 24px 0;
+}
+@media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
+.value-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 24px;
+  transition: border-color 0.2s;
+}
+.value-card:hover { border-color: var(--accent); }
+.value-card__icon {
+  width: 32px; height: 32px;
+  background: var(--accent-soft); color: var(--accent-dark);
+  border-radius: 6px; display: grid; place-items: center;
+  font-weight: 700; font-size: 16px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+.value-card h4 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 17px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 6px;
+}
+.value-card p {
+  font-size: 14.5px !important; color: var(--ink-soft);
+  line-height: 1.55; margin-bottom: 0 !important;
+  text-align: left !important;
+}
+
+.author-card {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .author-card { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+}
+.author-avatar {
+  width: 96px; height: 96px;
+  border: 2px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 42px; background: var(--accent-soft);
+  color: var(--ink);
+}
+.author-name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 4px;
+}
+.author-role {
+  font-size: 13px; color: var(--accent-dark);
+  font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.author-desc {
+  font-size: 14.5px; color: var(--ink-soft);
+  line-height: 1.6;
+}
+@media (max-width: 640px) { .author-desc { text-align: center; } }
+.author-links {
+  margin-top: 12px;
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+@media (max-width: 640px) { .author-links { justify-content: center; } }
+.author-links a {
+  font-size: 13px; font-weight: 500;
+}
+
+.contact-cta {
+  max-width: var(--max-narrow); margin: 48px auto;
+  padding: 36px 40px;
+  background: var(--ink); color: var(--surface);
+  border-radius: var(--radius); text-align: center;
+}
+.contact-cta h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 26px; letter-spacing: -0.015em;
+  color: var(--surface); margin-bottom: 10px;
+}
+.contact-cta p {
+  font-size: 15px; color: #B8C0CC;
+  margin-bottom: 22px; line-height: 1.6;
+  text-align: center !important;
+}
+.contact-cta__buttons {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.contact-cta a.btn {
+  display: inline-block; padding: 12px 24px;
+  border-radius: var(--radius); font-weight: 600;
+  font-size: 14.5px; transition: all 0.15s;
+  text-decoration: none;
+}
+.contact-cta a.btn--primary {
+  background: var(--accent); color: var(--surface);
+}
+.contact-cta a.btn--primary:hover { background: var(--accent-dark); text-decoration: none; }
+.contact-cta a.btn--secondary {
+  background: transparent; color: var(--surface);
+  border: 1px solid #2D3748;
+}
+.contact-cta a.btn--secondary:hover {
+  border-color: var(--surface); text-decoration: none;
+}
+
+.site-footer {
+  background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#converter">Converter</a>
+      <a href="index.html#tutorial">Como funciona</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="sobre.html" class="active">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<article class="about-hero">
+  <nav class="breadcrumb">
+    <a href="index.html">Início</a><span>›</span>
+    Sobre
+  </nav>
+  <div class="about-hero__eyebrow">A história do projeto</div>
+  <h1>Construído por quem <em>vive a contabilidade</em> todos os dias</h1>
+  <p class="about-hero__lede">
+    O DANFSe.tools é um projeto independente, gratuito e mantido por uma única pessoa: um contador que precisava de uma ferramenta de conversão de XML em DANFSe que realmente funcionasse — e resolveu construí-la para si e para a comunidade contábil brasileira.
+  </p>
+</article>
+
+<main class="story-block">
+
+  <h2>O que é este projeto</h2>
+  <p>
+    O <strong>DANFSe.tools</strong> nasceu para resolver um problema simples e cotidiano: converter arquivos XML de NFS-e Padrão Nacional em arquivos PDF (DANFSe) de forma rápida, gratuita e segura. As ferramentas disponíveis até então tinham, cada uma, suas limitações — algumas davam erro com XMLs do leiaute mais recente, outras geravam PDFs com layout quebrado, e a grande maioria fazia upload dos arquivos para servidores remotos, o que é problemático quando se trata de documentos fiscais com dados sensíveis de clientes.
+  </p>
+  <p>
+    A solução foi construir uma ferramenta com três compromissos não-negociáveis: <strong>processamento exclusivo no navegador do usuário</strong> (sem upload), <strong>aderência rigorosa às Notas Técnicas oficiais do CGNFS-e</strong>, e <strong>gratuidade total para o usuário final</strong>. Esses três princípios definem cada decisão técnica do projeto até hoje.
+  </p>
+
+  <h2>Por que existe</h2>
+  <p>
+    Existe uma boa quantidade de software fiscal no Brasil — a maioria pago, alguns excelentes, outros nem tanto. Para o contador no escritório que recebe arquivos XML de clientes ou para o empresário que precisa visualizar uma nota recém-emitida, no entanto, nem sempre faz sentido contratar um software completo só para isso. E as alternativas gratuitas online frequentemente vinham com problemas de segurança ou qualidade técnica.
+  </p>
+  <p>
+    O DANFSe.tools é a tentativa de oferecer uma alternativa <strong>simples, técnica e correta</strong> para essa necessidade específica. Um link, um botão, e o PDF gerado em segundos — sem instalação, sem cadastro, sem upload, sem custo.
+  </p>
+
+  <div class="quote">
+    <p>"A ideia não é competir com sistemas grandes. É preencher uma lacuna específica do dia a dia: gerar a DANFSe rápido, com privacidade, e sem dor de cabeça."</p>
+  </div>
+
+  <h2>Quem mantém o projeto</h2>
+  <p>
+    O DANFSe.tools é mantido por <strong>Welerson Fábio Brambila</strong>, contador formado em Ciências Contábeis pela <strong>Universidade Estadual de Maringá (UEM)</strong>, com mais de uma década de experiência prática na área contábil e fiscal.
+  </p>
+  <p>
+    A trajetória profissional combina vivência em escritório de contabilidade — onde se aprende a parte burocrática mais densa da profissão — com uma passagem pela indústria, atuando no departamento administrativo-fiscal de uma empresa do setor de confecções. Essa experiência dupla, vendo a contabilidade tanto pelo lado de quem entrega as obrigações quanto pelo lado de quem precisa delas para tocar o negócio, é o que orienta o projeto: <strong>uma ferramenta feita por contador, mas pensando também em como o usuário final da empresa vai recebê-la</strong>.
+  </p>
+  <p>
+    O projeto é desenvolvido a partir de Cianorte, no interior do Paraná, e mantido nas horas livres como contribuição à comunidade contábil brasileira.
+  </p>
+
+  <div class="author-card">
+    <div class="author-avatar">W</div>
+    <div>
+      <div class="author-name">Welerson Fábio Brambila</div>
+      <div class="author-role">Contador · Idealizador</div>
+      <div class="author-desc">
+        Bacharel em Ciências Contábeis pela UEM. Atua profissionalmente na área contábil e fiscal há mais de 10 anos. Baseado em Cianorte/PR.
+      </div>
+      <div class="author-links">
+        <a href="https://br.linkedin.com/in/welerson-f%C3%A1bio-brambila" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:welersonbrambila.fb@gmail.com">E-mail</a>
+        <a href="contato.html">Página de contato</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Os princípios do projeto</h2>
+  <p>
+    O DANFSe.tools segue um conjunto de princípios não-negociáveis, que orientam tanto as decisões técnicas quanto as decisões editoriais do blog:
+  </p>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-card__icon">P</div>
+      <h4>Privacidade radical</h4>
+      <p>Os arquivos XML não são enviados para servidores. O processamento ocorre integralmente no navegador do usuário. É privacidade por engenharia, não por promessa.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card__icon">G</div>
+      <h4>Gratuito e sem cadastro</h4>
+      <p>Sem login, sem limites de uso, sem versão paga. A ferramenta funciona da mesma forma para todos — do MEI ao escritório com volume alto.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card__icon">T</div>
+      <h4>Tecnicamente correto</h4>
+      <p>O conversor segue as Notas Técnicas oficiais do CGNFS-e (NT 004 e NT 007). Retenções, regimes tributários e códigos são tratados com rigor.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-card__icon">E</div>
+      <h4>Educação aberta</h4>
+      <p>O blog do site compartilha conhecimento técnico sobre NFS-e, retenções, leiautes e operações práticas — sem paywalls, sem cadastros.</p>
+    </div>
+  </div>
+
+  <h2>Como o projeto se sustenta</h2>
+  <p>
+    O DANFSe.tools é gratuito para o usuário final e seguirá assim. A sustentação financeira do projeto, na medida em que o tráfego cresça, virá da exibição de publicidade fornecida por redes de anúncios reconhecidas (como Google AdSense), em formato discreto e que não compromete a experiência de uso.
+  </p>
+  <p>
+    Esse modelo permite que a ferramenta permaneça acessível a qualquer pessoa, independentemente de capacidade financeira, ao mesmo tempo em que viabiliza a manutenção contínua do site e do conteúdo do blog. Mais detalhes sobre como a publicidade funciona estão na <a href="privacidade.html">Política de Privacidade</a> e nos <a href="termos.html">Termos de Uso</a>.
+  </p>
+
+  <h2>Independência institucional</h2>
+  <p>
+    O DANFSe.tools é um projeto independente. <strong>Não tem vínculo institucional, comercial ou operacional com órgãos governamentais</strong>, prefeituras municipais, Receita Federal do Brasil, Comitê Gestor da NFS-e (CGNFS-e), associações como ABRASF, ou empresas privadas de software fiscal.
+  </p>
+  <p>
+    Toda a infraestrutura é mantida por meios próprios, e as decisões editoriais e técnicas são tomadas exclusivamente pelo mantenedor do projeto, sem influência externa.
+  </p>
+
+</main>
+
+<div class="contact-cta">
+  <h3>Tem sugestão, dúvida ou crítica?</h3>
+  <p>O projeto é mantido por uma pessoa só, e o feedback de outros profissionais é o que mais ajuda a melhorar.<br>Pode me chamar — respondo pessoalmente.</p>
+  <div class="contact-cta__buttons">
+    <a href="contato.html" class="btn btn--primary">Página de contato</a>
+    <a href="mailto:welersonbrambila.fb@gmail.com" class="btn btn--secondary">Mandar e-mail</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html#converter">Converter</a></li>
+        <li><a href="index.html#tutorial">Como funciona</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Documentos legais</h5>
+      <ul>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+        <li><a href="termos.html">Termos de Uso</a></li>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Welerson Fábio Brambila · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
