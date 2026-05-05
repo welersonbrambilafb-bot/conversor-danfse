@@ -25,7 +25,6 @@
   --accent-soft: #E8F5E9;
   --font-display: 'Fraunces', Georgia, serif;
   --font-sans: 'Manrope', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
   --max: 1200px; --max-narrow: 860px; --radius: 8px; --radius-lg: 14px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -156,7 +155,6 @@ a:hover { text-decoration: underline; }
   font-size: 14.5px; color: var(--ink-soft);
   line-height: 1.55; margin-bottom: 18px;
   flex-grow: 1;
-  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
 }
 .article-card__meta {
   font-size: 12px; color: var(--ink-muted);
@@ -181,18 +179,38 @@ a:hover { text-decoration: underline; }
   font-weight: 400; font-size: 14px;
   margin-left: 12px; letter-spacing: 0;
 }
+.group-title__count {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: normal;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  margin-left: 10px;
+  letter-spacing: 0.05em;
+}
 
-.state {
-  max-width: var(--max-narrow); margin: 48px auto;
-  padding: 48px 24px; text-align: center;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); color: var(--ink-soft);
+/* Empty state — quando um grupo não tem nenhum artigo publicado ainda */
+.empty-group {
+  max-width: var(--max); margin: 0 auto; padding: 0 24px 24px;
+  font-size: 14px; color: var(--ink-muted);
+  font-style: italic;
 }
-.state h3 {
-  font-family: var(--font-display); font-size: 22px;
-  font-weight: 600; color: var(--ink); margin-bottom: 8px;
+
+/* Caso especial: nenhum artigo publicado em geral */
+.no-posts {
+  max-width: var(--max-narrow); margin: 80px auto;
+  padding: 48px 32px; text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
-.state p { font-size: 15px; }
+.no-posts h2 {
+  font-family: var(--font-display); font-size: 24px; font-weight: 600;
+  margin-bottom: 12px; color: var(--ink);
+}
+.no-posts p {
+  color: var(--ink-soft); font-size: 16px;
+}
 
 .site-footer {
   margin-top: 96px; background: var(--ink); color: #B8C0CC;
@@ -236,23 +254,21 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
       <a href="../index.html#tutorial">Como funciona</a>
       <a href="index.html" class="active">Blog</a>
       <a href="../index.html#faq">FAQ</a>
-      <a href="../index.html#sobre">Sobre</a>
+      <a href="../sobre.html">Sobre</a>
+      <a href="../contato.html">Contato</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero__eyebrow" id="hero-eyebrow">Blog</div>
+  <div class="hero__eyebrow" id="hero-count">Blog</div>
   <h1>Tudo sobre <em>NFS-e Padrão Nacional</em></h1>
   <p>Artigos práticos para contadores, empresários e MEIs que precisam entender, emitir, conferir e arquivar notas fiscais de serviço eletrônicas no novo padrão nacional.</p>
 </section>
 
-<main id="blog-content">
-  <div class="state" id="loading">
-    <h3>Carregando artigos…</h3>
-    <p>Aguarde um instante.</p>
-  </div>
-</main>
+<!-- O conteúdo da listagem é injetado aqui pelo JavaScript abaixo, com base
+     em posts.js (a "lista mestre" de artigos publicados). -->
+<main id="blog-content"></main>
 
 <footer class="site-footer">
   <div class="site-footer__inner">
@@ -271,16 +287,19 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
         <li><a href="../index.html#converter">Converter</a></li>
         <li><a href="../index.html#tutorial">Como funciona</a></li>
         <li><a href="index.html">Blog</a></li>
+        <li><a href="../sobre.html">Sobre</a></li>
+        <li><a href="../contato.html">Contato</a></li>
         <li><a href="../index.html#faq">FAQ</a></li>
-        <li><a href="../privacidade.html">Política de Privacidade</a></li>
       </ul>
     </div>
     <div>
-      <h5>Recursos oficiais</h5>
+      <h5>Documentos legais</h5>
       <ul>
+        <li><a href="../privacidade.html">Política de Privacidade</a></li>
+        <li><a href="../termos.html">Termos de Uso</a></li>
         <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
         <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
-        <li><a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener">Receita Federal</a></li>
+        <li><a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a></li>
       </ul>
     </div>
   </div>
@@ -291,14 +310,33 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   </div>
 </footer>
 
+<!-- Lista mestre de artigos publicados -->
+<script src="posts.js"></script>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const GROUP_TITLES = {
-  1: { title: 'Conceitos fundamentais', subtitle: 'comece por aqui' },
-  2: { title: 'Aprofundamento técnico', subtitle: 'para contadores e analistas fiscais' },
-  3: { title: 'Dúvidas operacionais', subtitle: 'do dia a dia' }
-};
+/* ===================================================================
+   RENDERIZAÇÃO DA LISTAGEM A PARTIR DE posts.js
+   =================================================================== */
+
+const GROUPS = [
+  {
+    key: "basico",
+    title: "Conceitos fundamentais",
+    subtitle: "comece por aqui"
+  },
+  {
+    key: "tecnico",
+    title: "Aprofundamento técnico",
+    subtitle: "para contadores e analistas fiscais"
+  },
+  {
+    key: "operacional",
+    title: "Dúvidas operacionais",
+    subtitle: "do dia a dia"
+  }
+];
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({
@@ -306,73 +344,73 @@ function escapeHtml(s) {
   }[c]));
 }
 
-function renderEmpty() {
-  document.getElementById('blog-content').innerHTML = `
-    <div class="state">
-      <h3>Em breve, artigos novos por aqui</h3>
-      <p>O blog está sendo construído. Volte em alguns dias para ver o conteúdo publicado.</p>
-    </div>`;
-  document.getElementById('hero-eyebrow').textContent = 'Blog';
+function renderCard(post) {
+  return `
+    <a href="${escapeHtml(post.slug)}.html" class="article-card">
+      <div class="article-card__cat">${escapeHtml(post.category)}</div>
+      <h2>${escapeHtml(post.title)}</h2>
+      <p>${escapeHtml(post.excerpt)}</p>
+      <div class="article-card__meta">
+        <span>Leitura: ${escapeHtml(post.readTime)}</span>
+        <span>${escapeHtml(post.level)}</span>
+      </div>
+    </a>
+  `;
 }
 
-function renderArticles(articles) {
-  if (!articles || articles.length === 0) {
-    renderEmpty();
+function renderBlog() {
+  const posts = window.POSTS || [];
+  const container = document.getElementById('blog-content');
+  const heroCount = document.getElementById('hero-count');
+
+  // Atualiza o contador no hero (ex: "Blog · 7 artigos")
+  if (posts.length === 0) {
+    heroCount.textContent = "Blog";
+  } else if (posts.length === 1) {
+    heroCount.textContent = "Blog · 1 artigo";
+  } else {
+    heroCount.textContent = "Blog · " + posts.length + " artigos";
+  }
+
+  // Caso não haja nenhum artigo publicado
+  if (posts.length === 0) {
+    container.innerHTML = `
+      <div class="no-posts">
+        <h2>Em breve, novos artigos</h2>
+        <p>Estamos preparando conteúdos para você. Volte em breve para conferir.</p>
+      </div>
+    `;
     return;
   }
 
-  document.getElementById('hero-eyebrow').textContent =
-    `Blog · ${articles.length} ${articles.length === 1 ? 'artigo' : 'artigos'}`;
-
-  const grouped = {};
-  for (const art of articles) {
-    const g = art.group || 1;
-    if (!grouped[g]) grouped[g] = [];
-    grouped[g].push(art);
-  }
-
+  // Renderiza cada grupo, mas só se tiver pelo menos 1 artigo nele
   let html = '';
-  const groupKeys = Object.keys(grouped).map(Number).sort((a,b) => a - b);
-  for (const g of groupKeys) {
-    const meta = GROUP_TITLES[g] || { title: 'Artigos', subtitle: '' };
-    html += `<h2 class="group-title">${escapeHtml(meta.title)}`;
-    if (meta.subtitle) {
-      html += ` <em>${escapeHtml(meta.subtitle)}</em>`;
-    }
-    html += `</h2>\n<section class="articles"><div class="articles__grid">`;
+  for (const group of GROUPS) {
+    const groupPosts = posts.filter(p => p.group === group.key);
+    if (groupPosts.length === 0) continue; // pula grupos vazios
 
-    for (const art of grouped[g]) {
-      html += `
-        <a href="${escapeHtml(art.slug)}.html" class="article-card">
-          <div class="article-card__cat">${escapeHtml(art.category || '')}</div>
-          <h2>${escapeHtml(art.title)}</h2>
-          <p>${escapeHtml(art.summary || '')}</p>
-          <div class="article-card__meta">
-            <span>Leitura: ${parseInt(art.readMin) || 5} min</span>
-            <span>${escapeHtml(art.level || 'Iniciante')}</span>
-          </div>
-        </a>`;
-    }
-    html += `</div></section>`;
+    const countLabel = groupPosts.length === 1
+      ? '1 artigo' : groupPosts.length + ' artigos';
+
+    html += `
+      <h2 class="group-title">
+        ${escapeHtml(group.title)}
+        <em>${escapeHtml(group.subtitle)}</em>
+        <span class="group-title__count">· ${countLabel}</span>
+      </h2>
+      <section class="articles">
+        <div class="articles__grid">
+          ${groupPosts.map(renderCard).join('')}
+        </div>
+      </section>
+    `;
   }
 
-  document.getElementById('blog-content').innerHTML = html;
+  container.innerHTML = html;
 }
 
-fetch('articles.json?t=' + Date.now())
-  .then(r => {
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
-  })
-  .then(data => renderArticles(data.articles))
-  .catch(err => {
-    console.error('Falha ao carregar articles.json:', err);
-    document.getElementById('blog-content').innerHTML = `
-      <div class="state">
-        <h3>Não foi possível carregar a lista de artigos</h3>
-        <p>Tente recarregar a página em alguns instantes.</p>
-      </div>`;
-  });
+// Renderiza assim que o script é executado
+renderBlog();
 </script>
 
 </body>
