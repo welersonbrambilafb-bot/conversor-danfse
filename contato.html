@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contato — Fale com o DANFSe.tools | DANFSe.tools</title>
+
+<meta name="description" content="Entre em contato com o DANFSe.tools por e-mail ou LinkedIn. Atendimento direto pelo idealizador do projeto, contador Welerson Brambila. Resposta em até 3 dias úteis." />
+<meta name="keywords" content="contato DANFSe.tools, falar com autor, suporte conversor NFS-e, sugestão DANFSe, reportar erro" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Welerson Fábio Brambila" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/contato.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contato — DANFSe.tools" />
+<meta property="og:description" content="Atendimento direto pelo idealizador do projeto. Resposta em até 3 dias úteis." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contato — DANFSe.tools",
+  "description": "Página de contato do DANFSe.tools",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Welerson Fábio Brambila",
+    "email": "welersonbrambila.fb@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cianorte",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    }
+  }
+}
+</script>
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --info: #3B82F6; --info-soft: #DBEAFE;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 760px; --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); text-decoration: none; }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.contact-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 64px 24px 24px;
+}
+.breadcrumb {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+
+.contact-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.contact-hero__eyebrow::before {
+  content: ""; width: 24px; height: 1px;
+  background: var(--accent-dark); display: inline-block;
+}
+.contact-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(34px, 5vw, 50px); line-height: 1.08;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 20px;
+}
+.contact-hero h1 em {
+  font-style: italic; font-weight: 400; color: var(--accent-dark);
+}
+.contact-hero p {
+  font-size: 18px; color: var(--ink-soft);
+  line-height: 1.6;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+
+/* Cards de canais */
+.channels {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) { .channels { grid-template-columns: 1fr; } }
+
+.channel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.channel-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+  text-decoration: none;
+}
+.channel-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 0;
+  background: var(--accent);
+  transition: height 0.25s ease;
+}
+.channel-card:hover::before { height: 100%; }
+.channel-card__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 10px;
+}
+.channel-card h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.channel-card p {
+  font-size: 14.5px; color: var(--ink-soft);
+  line-height: 1.55; margin-bottom: 16px;
+  text-align: justify; hyphens: auto;
+  flex-grow: 1;
+}
+.channel-card__action {
+  font-size: 14px; font-weight: 600;
+  color: var(--accent-dark);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* Sumário do guia */
+.guide-section {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 24px 24px 16px;
+}
+.guide-section h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 28px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin: 32px 0 16px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.guide-section h2 .num {
+  font-size: 14px; color: var(--accent-dark);
+  font-weight: 700; letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+.guide-section p {
+  margin-bottom: 14px; color: var(--ink-soft);
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.guide-section p strong { color: var(--ink); font-weight: 600; }
+
+/* Tipos de mensagem (cards de orientação) */
+.message-types {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px; margin: 18px 0 24px;
+}
+@media (max-width: 640px) { .message-types { grid-template-columns: 1fr; } }
+.message-type {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 22px;
+}
+.message-type__tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--accent-soft); color: var(--accent-dark);
+  padding: 3px 8px; border-radius: 100px; margin-bottom: 10px;
+}
+.message-type h4 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 16px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 6px;
+}
+.message-type p {
+  font-size: 13.5px; color: var(--ink-soft);
+  margin-bottom: 0 !important; line-height: 1.55;
+  text-align: left !important;
+}
+.message-type code {
+  font-family: var(--font-mono); font-size: 12px;
+  background: var(--surface-alt); padding: 1px 5px;
+  border-radius: 3px; color: var(--accent-dark);
+}
+
+/* Quadro informativo */
+.info-box {
+  margin: 20px 0; padding: 18px 22px;
+  background: var(--info-soft);
+  border-left: 3px solid var(--info);
+  border-radius: var(--radius);
+}
+.info-box__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--info); margin-bottom: 6px;
+}
+.info-box p {
+  margin-bottom: 0 !important; font-size: 14.5px;
+  text-align: justify !important; hyphens: auto;
+}
+
+/* Card de identificação */
+.identity-card {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 28px 32px;
+  background: var(--ink); color: var(--surface);
+  border-radius: var(--radius);
+}
+.identity-card__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+}
+.identity-card h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--surface); margin-bottom: 12px;
+}
+.identity-card p {
+  font-size: 14.5px; color: #B8C0CC;
+  margin-bottom: 8px; line-height: 1.6;
+  text-align: left !important;
+}
+.identity-card a { color: var(--accent); }
+.identity-card a:hover { color: var(--surface); }
+
+.site-footer {
+  margin-top: 80px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#converter">Converter</a>
+      <a href="index.html#tutorial">Como funciona</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </div>
+</header>
+
+<article class="contact-hero">
+  <nav class="breadcrumb">
+    <a href="index.html">Início</a><span>›</span>
+    Contato
+  </nav>
+  <div class="contact-hero__eyebrow">Fale com o projeto</div>
+  <h1>Vamos <em>conversar</em></h1>
+  <p>
+    O DANFSe.tools é um projeto independente, mantido por uma única pessoa. Isso significa que toda mensagem chega diretamente em mim — não há filas de atendimento, formulários robóticos, nem central terceirizada. Sou eu quem responde, geralmente em até <strong>3 dias úteis</strong>.
+  </p>
+</article>
+
+<!-- Canais principais -->
+<section class="channels">
+
+  <a href="mailto:welersonbrambila.fb@gmail.com" class="channel-card">
+    <div class="channel-card__label">Canal principal</div>
+    <h3>E-mail</h3>
+    <p>O canal mais direto para qualquer assunto: dúvidas técnicas, sugestões de melhoria, reportar erros, parcerias, questões de privacidade (LGPD), ou apenas dizer oi.</p>
+    <span class="channel-card__action">welersonbrambila.fb@gmail.com →</span>
+  </a>
+
+  <a href="https://br.linkedin.com/in/welerson-f%C3%A1bio-brambila" target="_blank" rel="noopener" class="channel-card">
+    <div class="channel-card__label">Profissional</div>
+    <h3>LinkedIn</h3>
+    <p>Para conexões profissionais, networking com outros contadores, ou se preferir confirmar minha trajetória antes de enviar uma mensagem mais detalhada.</p>
+    <span class="channel-card__action">Welerson Fábio Brambila →</span>
+  </a>
+
+</section>
+
+<main class="guide-section">
+
+  <h2><span class="num">01</span>Como deixar sua mensagem mais eficiente</h2>
+  <p>
+    Quanto mais clara e específica for a mensagem, mais rápida e útil será a resposta. Abaixo, alguns formatos sugeridos por tipo de assunto:
+  </p>
+
+  <div class="message-types">
+    <div class="message-type">
+      <span class="message-type__tag">Reportar erro</span>
+      <h4>Algo deu errado na conversão</h4>
+      <p>Conta o que aconteceu, qual navegador você usa, e se possível anexa o XML problemático (com dados anonimizados). Assunto: <code>[Erro] Descrição breve</code>.</p>
+    </div>
+    <div class="message-type">
+      <span class="message-type__tag">Sugestão</span>
+      <h4>Tenho uma ideia para melhorar</h4>
+      <p>Toda sugestão é bem-vinda — sou suspeito quanto ao que falta na ferramenta, e quem usa de verdade vê coisas que eu não vejo. Assunto: <code>[Sugestão] Tópico</code>.</p>
+    </div>
+    <div class="message-type">
+      <span class="message-type__tag">Dúvida técnica</span>
+      <h4>Pergunta sobre NFS-e ou DANFSe</h4>
+      <p>Se a dúvida não está coberta no <a href="blog/index.html">blog</a>, manda. Posso responder direto ou transformar em artigo no blog para ajudar mais gente. Assunto: <code>[Dúvida] Tópico</code>.</p>
+    </div>
+    <div class="message-type">
+      <span class="message-type__tag">LGPD</span>
+      <h4>Exercer direitos sobre dados pessoais</h4>
+      <p>Para pedidos relacionados à Lei Geral de Proteção de Dados — acesso, exclusão, correção, portabilidade. Assunto: <code>[LGPD] Tipo de solicitação</code>. Resposta em até 15 dias corridos.</p>
+    </div>
+    <div class="message-type">
+      <span class="message-type__tag">Parcerias</span>
+      <h4>Propostas de colaboração</h4>
+      <p>Tenho interesse em parcerias que respeitem os princípios do projeto (gratuidade, privacidade, código aberto). Assunto: <code>[Parceria] Tipo de proposta</code>.</p>
+    </div>
+    <div class="message-type">
+      <span class="message-type__tag">Imprensa</span>
+      <h4>Solicitações de imprensa</h4>
+      <p>Para entrevistas, citações ou pautas envolvendo o projeto. Inclua o veículo, prazo e tipo de material. Assunto: <code>[Imprensa] Veículo</code>.</p>
+    </div>
+  </div>
+
+  <h2><span class="num">02</span>O que esperar do retorno</h2>
+  <p>
+    Como o projeto não tem equipe dedicada — sou eu, fora do meu horário de trabalho — peço um pouco de paciência:
+  </p>
+  <ul style="margin: 12px 0 18px 24px; color: var(--ink-soft);">
+    <li>Mensagens simples (dúvidas rápidas, sugestões pontuais): geralmente respondo no mesmo dia ou no dia seguinte.</li>
+    <li>Mensagens técnicas (reportar erros que precisam investigação): até 3 dias úteis para análise inicial.</li>
+    <li>Solicitações de LGPD: até 15 dias corridos, conforme o Art. 19 da Lei 13.709/2018.</li>
+    <li>Propostas comerciais ou de parceria: até 5 dias úteis para um retorno inicial.</li>
+  </ul>
+
+  <div class="info-box">
+    <div class="info-box__label">Importante</div>
+    <p>Se você não receber resposta no prazo indicado, reenvie a mensagem. E-mails legítimos podem cair em pasta de spam — meu sistema de e-mail é Gmail e às vezes filtra mensagens de remetentes não conhecidos. Não é falta de educação, é só algoritmo.</p>
+  </div>
+
+  <h2><span class="num">03</span>Anexar arquivos XML em e-mails</h2>
+  <p>
+    Se você precisa anexar um XML para que eu analise um problema, alguns cuidados importantes:
+  </p>
+  <ul style="margin: 12px 0 18px 24px; color: var(--ink-soft);">
+    <li><strong>Anonimize os dados sensíveis</strong> antes de enviar — substitua CNPJ, razão social, valores e descrições reais por dados fictícios. O que importa para diagnosticar erros é a <em>estrutura</em> do XML, não os dados de clientes seus.</li>
+    <li><strong>Use senha em arquivos compactados</strong> se preferir uma camada extra de segurança. Me passa a senha numa segunda mensagem.</li>
+    <li><strong>Nunca envie XMLs com dados pessoais de clientes</strong> sem consentimento deles — isso é tratamento de dados pela LGPD e exige base legal específica.</li>
+  </ul>
+
+  <h2><span class="num">04</span>Localização</h2>
+  <p>
+    O projeto é desenvolvido e mantido a partir de <strong>Cianorte, Paraná, Brasil</strong>. Atendo prioritariamente em horário comercial brasileiro (UTC-3), embora respostas possam acontecer fora desse horário em casos específicos.
+  </p>
+
+</main>
+
+<!-- Card de identificação final -->
+<div class="identity-card">
+  <div class="identity-card__label">Quem responde</div>
+  <h3>Welerson Fábio Brambila</h3>
+  <p>Contador, formado em Ciências Contábeis pela Universidade Estadual de Maringá (UEM). Idealizador e mantenedor do DANFSe.tools.</p>
+  <p>📍 Cianorte/PR · Brasil</p>
+  <p>✉️ <a href="mailto:welersonbrambila.fb@gmail.com">welersonbrambila.fb@gmail.com</a></p>
+  <p>💼 <a href="https://br.linkedin.com/in/welerson-f%C3%A1bio-brambila" target="_blank" rel="noopener">LinkedIn — Welerson Fábio Brambila</a></p>
+  <p style="margin-top: 14px; font-size: 13px; color: #6B7388;">Para mais detalhes sobre minha trajetória e a história do projeto, veja a <a href="sobre.html">página Sobre</a>.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html#converter">Converter</a></li>
+        <li><a href="index.html#tutorial">Como funciona</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Recursos oficiais</h5>
+      <ul>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/nfse" target="_blank" rel="noopener">Documentação CGNFS-e</a></li>
+        <li><a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Welerson Fábio Brambila · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
