@@ -1367,8 +1367,15 @@ els.btnConvert.addEventListener('click', async () => {
     }
   } else {
     // Multiple: ZIP
+    // O JSZip, por padrão, registra a data dos arquivos internos em UTC, fazendo
+    // com que o Windows mostre data/hora deslocadas após a descompactação. Para
+    // corrigir isso, precisamos ajustar manualmente o objeto Date passado: somamos
+    // o offset do fuso local em ms, fazendo com que o JSZip "salve em UTC" um valor
+    // que, quando interpretado como UTC pelo Windows, mostre a hora local correta.
     const zip = new JSZip();
-    successful.forEach(r => zip.file(r.name, r.pdfBytes));
+    const agora = new Date();
+    const dataLocal = new Date(agora.getTime() - agora.getTimezoneOffset() * 60000);
+    successful.forEach(r => zip.file(r.name, r.pdfBytes, { date: dataLocal }));
     const blob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
     const ts = new Date().toISOString().replace(/[-:T]/g,'').slice(0, 14);
     downloadBlob(blob, `DANFSe_lote_${ts}.zip`);
