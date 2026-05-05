@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Termos de Uso — DANFSe.tools</title>
+
+<meta name="description" content="Termos de Uso do DANFSe.tools — ferramenta gratuita de conversão de XML de NFS-e Padrão Nacional em PDF (DANFSe). Regras claras de uso, isenções e responsabilidades." />
+<meta name="keywords" content="termos uso DANFSe.tools, condições uso conversor NFS-e, termos serviço, regras DANFSe.tools" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Welerson Fábio Brambila" />
+<link rel="canonical" href="https://conversor-danfse.pages.dev/termos.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Termos de Uso — DANFSe.tools" />
+<meta property="og:description" content="Regras claras para o uso da ferramenta gratuita de conversão de XML em DANFSe." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&amp;family=Manrope:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg: #F5F7F4; --surface: #FFFFFF; --surface-alt: #F8FAF8;
+  --ink: #1F2937; --ink-soft: #374151; --ink-muted: #6B7280;
+  --border: #E1E7DE; --accent: #5CB85C; --accent-dark: #3D8B3D;
+  --accent-soft: #E8F5E9;
+  --warning: #F59E0B; --warning-soft: #FEF3C7;
+  --info: #3B82F6; --info-soft: #DBEAFE;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max: 1200px; --max-narrow: 820px; --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+  color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 247, 244, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header__inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 24px; display: flex;
+  align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; color: var(--ink); text-decoration: none;
+}
+.brand__seal {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 600; font-size: 17px; background: var(--surface);
+}
+.brand small {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 11px; color: var(--ink-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; line-height: 1; margin-top: 3px;
+}
+.nav { display: flex; gap: 28px; }
+.nav a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav a.active { color: var(--accent-dark); }
+.nav a:hover { color: var(--accent-dark); text-decoration: none; }
+@media (max-width: 720px) { .nav { display: none; } }
+
+.page-hero {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 64px 24px 24px;
+}
+.breadcrumb {
+  font-size: 13px; color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--ink-muted); }
+.breadcrumb a:hover { color: var(--accent-dark); }
+.breadcrumb span { margin: 0 8px; }
+
+.page-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.page-hero__eyebrow::before {
+  content: ""; width: 24px; height: 1px;
+  background: var(--accent-dark); display: inline-block;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(32px, 5vw, 46px); line-height: 1.1;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
+}
+.page-hero h1 em {
+  font-style: italic; font-weight: 400; color: var(--accent-dark);
+}
+.page-hero__intro {
+  font-size: 17px; color: var(--ink-soft);
+  line-height: 1.65; margin-bottom: 16px;
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.page-hero__meta {
+  font-size: 13px; color: var(--ink-muted);
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  padding-top: 20px; padding-bottom: 28px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 28px;
+}
+.page-hero__meta strong { color: var(--ink-soft); }
+
+/* Quadro de aceitação */
+.acceptance-box {
+  max-width: var(--max-narrow); margin: 32px auto;
+  padding: 24px 30px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.acceptance-box__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 8px;
+}
+.acceptance-box h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 19px; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.acceptance-box p {
+  font-size: 15px; color: var(--ink-soft);
+  line-height: 1.65;
+  text-align: justify; hyphens: auto;
+}
+
+/* Sumário (TOC) */
+.toc {
+  max-width: var(--max-narrow); margin: 24px auto 32px;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.toc h4 {
+  font-family: var(--font-display); font-size: 16px;
+  font-weight: 600; color: var(--ink); margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.toc ol {
+  list-style: none; counter-reset: toc;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 24px;
+}
+@media (max-width: 640px) { .toc ol { grid-template-columns: 1fr; } }
+.toc li {
+  counter-increment: toc; font-size: 14px;
+  padding: 4px 0; line-height: 1.5;
+}
+.toc li::before {
+  content: counter(toc) ". ";
+  color: var(--accent-dark); font-weight: 600; margin-right: 4px;
+}
+.toc a { color: var(--ink-soft); }
+.toc a:hover { color: var(--accent-dark); }
+
+/* Body */
+.terms-body {
+  max-width: var(--max-narrow); margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.terms-body section {
+  scroll-margin-top: 80px;
+  padding: 32px 0; border-top: 1px solid var(--border);
+}
+.terms-body section:first-child { border-top: 0; padding-top: 16px; }
+.terms-body h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 26px; line-height: 1.2;
+  letter-spacing: -0.015em; color: var(--ink);
+  margin-bottom: 16px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.terms-body h2 .num {
+  font-size: 14px; color: var(--accent-dark);
+  font-weight: 700; letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+.terms-body h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 19px; line-height: 1.3;
+  color: var(--ink); margin: 24px 0 10px;
+}
+.terms-body p {
+  margin-bottom: 14px; color: var(--ink-soft);
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.terms-body p strong { color: var(--ink); font-weight: 600; }
+.terms-body ul, .terms-body ol {
+  margin: 12px 0 18px 24px; color: var(--ink-soft);
+}
+.terms-body li {
+  margin-bottom: 8px; line-height: 1.65;
+  text-align: justify; hyphens: auto;
+}
+.terms-body code {
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--surface-alt); padding: 2px 6px;
+  border-radius: 3px; border: 1px solid var(--border);
+  color: var(--accent-dark);
+}
+
+/* Quadros temáticos */
+.callout {
+  margin: 20px 0; padding: 18px 22px;
+  border-radius: var(--radius); border-left: 3px solid;
+}
+.callout--info {
+  background: var(--info-soft); border-color: var(--info);
+}
+.callout--warning {
+  background: var(--warning-soft); border-color: var(--warning);
+}
+.callout--accent {
+  background: var(--accent-soft); border-color: var(--accent);
+}
+.callout__label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.callout--info .callout__label { color: var(--info); }
+.callout--warning .callout__label { color: var(--warning); }
+.callout--accent .callout__label { color: var(--accent-dark); }
+.callout p { margin-bottom: 0 !important; font-size: 14.5px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+/* Card de contato */
+.contact-card {
+  margin: 24px 0; padding: 28px 32px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.contact-card h4 {
+  font-family: var(--font-display); font-size: 18px;
+  font-weight: 600; color: var(--ink); margin-bottom: 12px;
+}
+.contact-card p {
+  font-size: 15px; color: var(--ink-soft); margin-bottom: 8px;
+  text-align: left !important;
+}
+
+.site-footer {
+  margin-top: 80px; background: var(--ink); color: #B8C0CC;
+  padding: 48px 24px 28px; font-size: 14px;
+}
+.site-footer__inner {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+}
+@media (max-width: 720px) { .site-footer__inner { grid-template-columns: 1fr; gap: 32px; } }
+.site-footer h5 {
+  color: var(--surface); font-family: var(--font-display);
+  font-weight: 600; font-size: 15px; margin-bottom: 14px;
+}
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; }
+.site-footer a { color: #B8C0CC; }
+.site-footer a:hover { color: var(--surface); }
+.site-footer__bottom {
+  max-width: var(--max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid #1F2A3D;
+  font-size: 12px; color: #6B7388; text-align: center; line-height: 1.6;
+}
+.site-footer__bottom strong { color: #B8C0CC; }
+
+::selection { background: var(--accent); color: var(--surface); }
+*:focus { outline: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <span class="brand__seal">D</span>
+      <span>DANFSe<small>tools · gratuito</small></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#converter">Converter</a>
+      <a href="index.html#tutorial">Como funciona</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<article class="page-hero">
+  <nav class="breadcrumb">
+    <a href="index.html">Início</a><span>›</span>
+    Termos de Uso
+  </nav>
+  <div class="page-hero__eyebrow">Condições gerais do serviço</div>
+  <h1>Termos de <em>Uso</em></h1>
+  <p class="page-hero__intro">
+    Estes Termos de Uso definem as regras para utilização do <strong>DANFSe.tools</strong> — uma ferramenta gratuita, mantida por pessoa física, para conversão de arquivos XML de NFS-e Padrão Nacional em arquivos PDF (DANFSe), com processamento executado integralmente no navegador do usuário.
+  </p>
+  <p class="page-hero__intro">
+    Ao acessar ou utilizar o site, você concorda integralmente com as condições aqui descritas. Recomendamos a leitura atenta antes de utilizar qualquer funcionalidade.
+  </p>
+  <div class="page-hero__meta">
+    <span><strong>Vigente desde:</strong> 4 de maio de 2026</span>
+    <span><strong>Última atualização:</strong> 4 de maio de 2026</span>
+    <span><strong>Versão:</strong> 1.0</span>
+  </div>
+</article>
+
+<div class="acceptance-box">
+  <div class="acceptance-box__label">Aceitação tácita</div>
+  <h3>O que significa aceitar estes termos</h3>
+  <p>
+    O uso do DANFSe.tools, mesmo que parcial — apenas para visualizar uma página, ler um artigo do blog ou converter um único arquivo XML — implica em aceitação automática e integral destes Termos de Uso e da nossa <a href="privacidade.html">Política de Privacidade</a>. Caso você não concorde com qualquer disposição abaixo, deve interromper o uso do site imediatamente.
+  </p>
+</div>
+
+<nav class="toc" aria-label="Sumário">
+  <h4>Sumário</h4>
+  <ol>
+    <li><a href="#secao-1">O que é o DANFSe.tools</a></li>
+    <li><a href="#secao-2">O que a ferramenta faz hoje</a></li>
+    <li><a href="#secao-3">O que a ferramenta NÃO faz</a></li>
+    <li><a href="#secao-4">Quem pode utilizar</a></li>
+    <li><a href="#secao-5">Gratuidade e ausência de cadastro</a></li>
+    <li><a href="#secao-6">Processamento local dos arquivos</a></li>
+    <li><a href="#secao-7">Validade fiscal: o que vale é o XML</a></li>
+    <li><a href="#secao-8">Conteúdo do blog</a></li>
+    <li><a href="#secao-9">Responsabilidade do usuário</a></li>
+    <li><a href="#secao-10">Limitações de responsabilidade</a></li>
+    <li><a href="#secao-11">Disponibilidade do serviço</a></li>
+    <li><a href="#secao-12">Propriedade intelectual</a></li>
+    <li><a href="#secao-13">Publicidade no site</a></li>
+    <li><a href="#secao-14">Usos proibidos</a></li>
+    <li><a href="#secao-15">Alterações nestes termos</a></li>
+    <li><a href="#secao-16">Foro e legislação aplicável</a></li>
+  </ol>
+</nav>
+
+<main class="terms-body">
+
+<section id="secao-1">
+  <h2><span class="num">01</span>O que é o DANFSe.tools</h2>
+  <p>
+    O <strong>DANFSe.tools</strong> é um site informativo e ferramenta web independente, mantido por <strong>Welerson Fábio Brambila</strong> (pessoa física, CPF não divulgado para fins de proteção de dados pessoais), com sede operacional em <strong>Cianorte/PR, Brasil</strong>, acessível pelo endereço <code>conversor-danfse.pages.dev</code> e eventuais subdomínios e endereços alternativos que vierem a ser utilizados pelo mantenedor.
+  </p>
+  <p>
+    O serviço não tem vínculo institucional, comercial ou operacional com órgãos governamentais, prefeituras municipais, Receita Federal do Brasil, Comitê Gestor da NFS-e (CGNFS-e), associações como ABRASF, ou empresas privadas de software fiscal. É um <strong>projeto independente</strong>, oferecido voluntariamente à comunidade contábil brasileira.
+  </p>
+</section>
+
+<section id="secao-2">
+  <h2><span class="num">02</span>O que a ferramenta faz hoje</h2>
+  <p>
+    O DANFSe.tools, em sua versão atual, oferece exclusivamente as seguintes funcionalidades:
+  </p>
+  <ul>
+    <li><strong>Conversão de XML em PDF (DANFSe):</strong> recebe arquivos XML no padrão da NFS-e Padrão Nacional (CGNFS-e) e gera o respectivo Documento Auxiliar da NFS-e (DANFSe) em formato PDF, com layout institucional padronizado.</li>
+    <li><strong>Conversão individual ou em lote:</strong> permite o envio de um ou múltiplos arquivos XML simultaneamente. Em conversões com múltiplos arquivos, o resultado é entregue em um único arquivo compactado (.zip).</li>
+    <li><strong>Processamento integralmente no navegador:</strong> a conversão ocorre exclusivamente no dispositivo do usuário, utilizando tecnologia Pyodide / WebAssembly. Nenhum arquivo XML é enviado para servidores remotos.</li>
+    <li><strong>Conteúdo informativo no blog:</strong> artigos técnicos sobre NFS-e Padrão Nacional, leiautes XML, retenções tributárias, regimes fiscais e operações relacionadas, com finalidade exclusivamente educacional.</li>
+  </ul>
+</section>
+
+<section id="secao-3">
+  <h2><span class="num">03</span>O que a ferramenta NÃO faz</h2>
+  <p>
+    Para evitar qualquer mal-entendido sobre a abrangência do serviço, esclarecemos expressamente que o DANFSe.tools <strong>não</strong>:
+  </p>
+  <ul>
+    <li>Emite NFS-e (a emissão é função exclusiva do prestador do serviço, em portal autorizado pelo município ou pelo emissor nacional do CGNFS-e).</li>
+    <li>Cancela, corrige, substitui ou retifica NFS-e já emitidas.</li>
+    <li>Consulta, valida ou autentica notas no portal nacional ou em portais municipais.</li>
+    <li>Armazena, arquiva ou disponibiliza histórico das notas convertidas pelo usuário.</li>
+    <li>Realiza cálculos tributários, apurações fiscais ou qualquer atividade equivalente à prestação de serviços contábeis profissionais.</li>
+    <li>Substitui o aconselhamento profissional de um contador ou profissional habilitado.</li>
+  </ul>
+  <div class="callout callout--info">
+    <div class="callout__label">Escopo bem definido</div>
+    <p>O DANFSe.tools é uma ferramenta de <strong>visualização</strong> — converte um documento estruturado (XML) em sua representação visual (PDF). É essa, e somente essa, sua função.</p>
+  </div>
+</section>
+
+<section id="secao-4">
+  <h2><span class="num">04</span>Quem pode utilizar</h2>
+  <p>
+    O DANFSe.tools é destinado ao uso por <strong>pessoas maiores de 18 anos</strong>, profissionais da área contábil, empresários, prestadores de serviços e demais interessados em converter arquivos XML de NFS-e em sua representação visual em PDF.
+  </p>
+  <p>
+    Embora não exista barreira técnica de cadastro, o uso por pessoas menores de 18 anos não é incentivado, e o site não direciona conteúdo a esse público. Pais ou responsáveis legais devem supervisionar eventuais acessos por menores.
+  </p>
+  <p>
+    O acesso é livre e gratuito a partir de qualquer ponto do território nacional ou internacional, observadas eventuais restrições técnicas de redes corporativas ou governamentais.
+  </p>
+</section>
+
+<section id="secao-5">
+  <h2><span class="num">05</span>Gratuidade e ausência de cadastro</h2>
+  <p>
+    O DANFSe.tools é oferecido <strong>integralmente sem custo</strong> ao usuário final. Não há mensalidade, plano premium, versão paga, limite de uso por arquivo, limite de quantidade de conversões, limite de tamanho de lote, nem qualquer outro modelo de cobrança implícito ou explícito.
+  </p>
+  <p>
+    Igualmente, <strong>não exigimos cadastro, login, senha, certificado digital ou qualquer outra forma de autenticação</strong> para utilização da ferramenta. Basta acessar o site e usar.
+  </p>
+  <p>
+    A sustentação financeira do projeto poderá, no futuro ou desde já, ocorrer por meio de exibição de publicidade fornecida por redes de anúncios reconhecidas, conforme detalhado na seção 13. Em qualquer cenário, a gratuidade do serviço para o usuário final é compromisso permanente.
+  </p>
+</section>
+
+<section id="secao-6">
+  <h2><span class="num">06</span>Processamento local dos arquivos</h2>
+  <p>
+    Esta é a característica técnica e operacional mais importante do DANFSe.tools, e está formalizada nestes Termos como compromisso vinculante:
+  </p>
+  <p>
+    Todo o processamento dos arquivos XML enviados pelo usuário ocorre <strong>exclusivamente dentro do navegador do próprio usuário</strong>, em seu dispositivo (computador ou celular). Os arquivos não são enviados para servidores do DANFSe.tools, do Cloudflare, do GitHub, ou de qualquer outro terceiro.
+  </p>
+  <p>
+    Tecnicamente, isso é viabilizado pelo uso do <strong>Pyodide</strong> — uma implementação do interpretador Python compilada para WebAssembly, que executa diretamente no navegador. Após o carregamento inicial do site, o usuário pode inclusive desconectar-se da internet e continuar utilizando a conversão normalmente.
+  </p>
+  <div class="callout callout--accent">
+    <div class="callout__label">Compromisso técnico</div>
+    <p>O modelo de processamento local não é uma escolha estética nem promessa retórica — é uma decisão de arquitetura inserida no funcionamento técnico do site. Modificações futuras nesse modelo, caso ocorram, serão obrigatoriamente comunicadas em destaque e não alterarão o tratamento de conversões já realizadas.</p>
+  </div>
+</section>
+
+<section id="secao-7">
+  <h2><span class="num">07</span>Validade fiscal: o que vale é o XML</h2>
+  <p>
+    O usuário declara estar ciente de que, para fins fiscais, contábeis e tributários:
+  </p>
+  <ul>
+    <li>O <strong>arquivo XML original</strong> da NFS-e, devidamente assinado digitalmente pelo emissor autorizado, é o documento fiscal eletrônico válido perante a Receita Federal, Estado, Município e demais órgãos fiscalizadores.</li>
+    <li>O <strong>arquivo PDF (DANFSe)</strong> gerado por esta ferramenta é uma <em>representação visual</em> do XML, destinado a facilitar a leitura humana, o arquivamento visual, a impressão e o compartilhamento. Não substitui o XML para fins fiscais.</li>
+    <li>O DANFSe.tools <strong>não assina, não valida, não autentica e não certifica</strong> os PDFs gerados. Eles são representações fiéis do conteúdo do XML, mas sem valor legal autônomo.</li>
+    <li>O usuário é o único responsável por <strong>guardar o XML original</strong> pelos prazos legais aplicáveis (em geral, no mínimo 5 anos), conforme a legislação tributária brasileira.</li>
+  </ul>
+  <div class="callout callout--warning">
+    <div class="callout__label">Atenção</div>
+    <p>Caso ocorra divergência entre o conteúdo do PDF gerado por esta ferramenta e o conteúdo do XML original, prevalecerá sempre o XML. O usuário deve sempre validar a NFS-e diretamente no portal oficial (<a href="https://www.nfse.gov.br" target="_blank" rel="noopener">nfse.gov.br</a>) em caso de dúvida.</p>
+  </div>
+</section>
+
+<section id="secao-8">
+  <h2><span class="num">08</span>Conteúdo do blog</h2>
+  <p>
+    O blog do DANFSe.tools publica artigos técnicos e educacionais sobre temas relacionados à NFS-e Padrão Nacional, retenções tributárias, leiautes de XML, regimes tributários e operações fiscais. Sobre esse conteúdo, o usuário declara estar ciente de que:
+  </p>
+  <ul>
+    <li>Os artigos têm <strong>finalidade exclusivamente informativa e educacional</strong>, baseados em conhecimento prático do mantenedor do projeto e em fontes oficiais publicadas pelo CGNFS-e, Receita Federal e demais órgãos.</li>
+    <li>Os textos <strong>não constituem aconselhamento profissional</strong> contábil, tributário ou jurídico para casos específicos. Cada situação fiscal deve ser avaliada por profissional habilitado, considerando as particularidades do caso concreto e a legislação vigente.</li>
+    <li>A legislação tributária brasileira é <strong>dinâmica e variável por município</strong>. Embora os artigos sejam mantidos atualizados conforme o conhecimento disponível, podem haver defasagens em relação a alterações legislativas recentes, especialmente em normas municipais.</li>
+    <li>O DANFSe.tools <strong>não se responsabiliza por decisões tomadas com base apenas nas informações do blog</strong>, sem consulta a profissional habilitado e às fontes oficiais.</li>
+  </ul>
+</section>
+
+<section id="secao-9">
+  <h2><span class="num">09</span>Responsabilidade do usuário</h2>
+  <p>
+    Ao utilizar o DANFSe.tools, o usuário se compromete a:
+  </p>
+  <ul>
+    <li>Utilizar a ferramenta apenas para os fins legítimos a que se destina — converter arquivos XML de NFS-e em representação visual em PDF.</li>
+    <li>Possuir os direitos legais sobre os arquivos XML que processar, seja como prestador (que emitiu a nota), tomador (que recebeu a nota), ou profissional contábil autorizado por uma das partes.</li>
+    <li>Cumprir a legislação aplicável ao tratamento de dados pessoais contidos nos XMLs, em especial a <strong>Lei Geral de Proteção de Dados (LGPD — Lei 13.709/2018)</strong>, quando processar arquivos contendo dados de terceiros.</li>
+    <li>Manter o sigilo profissional e a confidencialidade que regem sua atividade, especialmente quando se tratar de profissional contábil processando notas de clientes.</li>
+    <li>Verificar a integridade e correção dos PDFs gerados antes de utilizá-los para qualquer finalidade prática (arquivamento, envio a terceiros, apresentação em fiscalização).</li>
+    <li>Não utilizar a ferramenta para automatizações em massa que sobrecarreguem servidores ou caracterizem uso abusivo.</li>
+  </ul>
+</section>
+
+<section id="secao-10">
+  <h2><span class="num">10</span>Limitações de responsabilidade</h2>
+  <p>
+    O DANFSe.tools é fornecido "no estado em que se encontra" (<em>as is</em>), sem garantias de qualquer natureza, expressas ou implícitas. Especificamente, o mantenedor <strong>não se responsabiliza por</strong>:
+  </p>
+  <ul>
+    <li>Eventuais erros, omissões ou imprecisões nos PDFs gerados, sendo responsabilidade do usuário a conferência do resultado.</li>
+    <li>Falhas de conversão decorrentes de XMLs corrompidos, malformados, fora do padrão NFS-e Nacional ou que não atendam às Notas Técnicas oficiais do CGNFS-e.</li>
+    <li>Indisponibilidade temporária do site por manutenção, falha de infraestrutura de terceiros (Cloudflare, GitHub) ou força maior.</li>
+    <li>Decisões fiscais, contábeis ou administrativas tomadas pelo usuário com base em informações obtidas no site.</li>
+    <li>Perdas, danos diretos, indiretos, incidentais, consequenciais ou lucros cessantes decorrentes do uso ou impossibilidade de uso da ferramenta.</li>
+    <li>Conteúdo de sites de terceiros eventualmente referenciados em links do blog ou de outras páginas.</li>
+    <li>Interações com anúncios exibidos pelo Google AdSense ou outras redes publicitárias (ver seção 13).</li>
+  </ul>
+  <p>
+    Em qualquer hipótese, e até onde permitido pela legislação aplicável, a responsabilidade do mantenedor do DANFSe.tools, agregada e cumulativa, fica limitada ao montante simbólico de <strong>R$ 1,00 (um real)</strong>, representativo da natureza estritamente gratuita e voluntária do serviço.
+  </p>
+</section>
+
+<section id="secao-11">
+  <h2><span class="num">11</span>Disponibilidade do serviço</h2>
+  <p>
+    O DANFSe.tools busca manter o site disponível 24 horas por dia, 7 dias por semana, mas <strong>não garante disponibilidade ininterrupta</strong>. Manutenções programadas, atualizações, indisponibilidades de provedores de infraestrutura (Cloudflare, GitHub) ou eventos de força maior podem causar indisponibilidade temporária.
+  </p>
+  <p>
+    O mantenedor reserva-se o direito de, a seu exclusivo critério e sem aviso prévio:
+  </p>
+  <ul>
+    <li>Modificar, suspender ou descontinuar funcionalidades específicas do site.</li>
+    <li>Realizar manutenções programadas ou emergenciais.</li>
+    <li>Bloquear acessos identificados como abusivos, automatizados em volume excessivo, ou contrários a estes Termos.</li>
+    <li>Encerrar definitivamente o projeto, comunicando previamente em destaque no site quando possível.</li>
+  </ul>
+</section>
+
+<section id="secao-12">
+  <h2><span class="num">12</span>Propriedade intelectual</h2>
+  <p>
+    Os direitos sobre o site, sua identidade visual, marca, código-fonte (na medida em que não esteja publicado em repositório aberto), textos do blog e demais conteúdos originais pertencem a <strong>Welerson Fábio Brambila</strong>, salvo indicação expressa em sentido contrário.
+  </p>
+  <p>
+    O usuário pode:
+  </p>
+  <ul>
+    <li>Utilizar livremente a ferramenta para conversão de seus arquivos XML.</li>
+    <li>Compartilhar o link do site ou de artigos específicos do blog.</li>
+    <li>Citar trechos curtos do conteúdo do blog em outros materiais, desde que com indicação clara da fonte e link para a página original.</li>
+  </ul>
+  <p>
+    O usuário <strong>não pode</strong>:
+  </p>
+  <ul>
+    <li>Reproduzir integralmente artigos do blog em outros sites, redes sociais ou materiais sem autorização expressa.</li>
+    <li>Utilizar a marca "DANFSe.tools" ou elementos visuais do site em produtos, serviços ou materiais próprios sem autorização.</li>
+    <li>Realizar engenharia reversa do código que gera os PDFs com finalidade de criar produto concorrente comercializado, salvo na medida em que tal análise seja permitida pela legislação aplicável.</li>
+  </ul>
+  <p>
+    O conteúdo do XML processado e o PDF resultante <strong>permanecem de propriedade do usuário</strong> (ou do prestador/tomador da nota, conforme o caso). O DANFSe.tools não reivindica qualquer direito sobre as notas convertidas.
+  </p>
+</section>
+
+<section id="secao-13">
+  <h2><span class="num">13</span>Publicidade no site</h2>
+  <p>
+    Para sustentar a operação gratuita do projeto, o site poderá exibir anúncios fornecidos pela rede <strong>Google AdSense</strong> ou redes equivalentes. Sobre essa publicidade:
+  </p>
+  <ul>
+    <li>Os anúncios são selecionados automaticamente pelo provedor da rede publicitária com base em critérios contextuais, comportamentais e técnicos definidos pelo próprio provedor.</li>
+    <li>O DANFSe.tools <strong>não tem controle direto sobre quais anúncios específicos serão exibidos</strong> em cada visita.</li>
+    <li>O DANFSe.tools <strong>não endossa, não recomenda e não se responsabiliza</strong> pelos produtos, serviços, ofertas ou conteúdos veiculados nos anúncios.</li>
+    <li>Eventuais transações realizadas entre o usuário e os anunciantes ocorrem exclusivamente entre as partes envolvidas, sem qualquer participação ou responsabilidade do DANFSe.tools.</li>
+    <li>O tratamento de dados pessoais pelo Google AdSense é regido pelas próprias políticas do Google, conforme detalhado na nossa <a href="privacidade.html">Política de Privacidade</a>.</li>
+  </ul>
+</section>
+
+<section id="secao-14">
+  <h2><span class="num">14</span>Usos proibidos</h2>
+  <p>
+    É expressamente vedado utilizar o DANFSe.tools para:
+  </p>
+  <ul>
+    <li>Qualquer atividade ilegal, fraudulenta ou contrária à legislação brasileira ou internacional.</li>
+    <li>Processar arquivos XML obtidos de forma ilícita ou sem autorização do prestador ou tomador da nota.</li>
+    <li>Gerar PDFs com a intenção de adulterar, falsificar ou induzir a erro em relação a operações fiscais reais.</li>
+    <li>Realizar ataques automatizados, varreduras de vulnerabilidade não autorizadas, tentativas de invasão ou qualquer atividade que comprometa a segurança ou disponibilidade do site.</li>
+    <li>Reverter, copiar ou redistribuir o serviço com a finalidade de oferecer ferramenta concorrente comercializada, sem autorização expressa.</li>
+    <li>Sobrecarregar deliberadamente os recursos do site com volume artificialmente alto de requisições.</li>
+  </ul>
+  <p>
+    A constatação de qualquer dos usos acima, ou de outros usos abusivos não previstos expressamente, autoriza o mantenedor a bloquear o acesso do usuário envolvido e, conforme o caso, comunicar autoridades competentes.
+  </p>
+</section>
+
+<section id="secao-15">
+  <h2><span class="num">15</span>Alterações nestes termos</h2>
+  <p>
+    Estes Termos de Uso podem ser atualizados a qualquer momento, a critério do mantenedor, para refletir mudanças no funcionamento do site, ajustes legais, esclarecimentos ou inclusões necessárias. A versão mais recente estará sempre disponível em <a href="https://conversor-danfse.pages.dev/termos.html">https://conversor-danfse.pages.dev/termos.html</a>, com a data de última atualização indicada no topo do documento.
+  </p>
+  <p>
+    Em caso de alterações materiais (que afetem significativamente os direitos ou obrigações do usuário), faremos esforços razoáveis para comunicar a mudança em destaque no site. O uso contínuo do DANFSe.tools após qualquer alteração nos Termos significa aceitação tácita das novas condições.
+  </p>
+</section>
+
+<section id="secao-16">
+  <h2><span class="num">16</span>Foro e legislação aplicável</h2>
+  <p>
+    Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil, em especial:
+  </p>
+  <ul>
+    <li><strong>Lei nº 10.406/2002</strong> — Código Civil Brasileiro</li>
+    <li><strong>Lei nº 8.078/1990</strong> — Código de Defesa do Consumidor (no que for aplicável)</li>
+    <li><strong>Lei nº 12.965/2014</strong> — Marco Civil da Internet</li>
+    <li><strong>Lei nº 13.709/2018</strong> — Lei Geral de Proteção de Dados (LGPD)</li>
+    <li><strong>Lei nº 9.610/1998</strong> — Lei de Direitos Autorais</li>
+  </ul>
+  <p>
+    Eventuais controvérsias decorrentes da interpretação ou execução destes Termos serão dirimidas no foro da Comarca de <strong>Cianorte/PR</strong>, ressalvado o foro do domicílio do consumidor quando aplicável a legislação consumerista.
+  </p>
+
+  <div class="contact-card">
+    <h4>Dúvidas sobre estes termos?</h4>
+    <p>Em caso de dúvidas sobre qualquer disposição destes Termos de Uso, entre em contato pelos canais oficiais:</p>
+    <p><strong>E-mail:</strong> <a href="mailto:welersonbrambila.fb@gmail.com">welersonbrambila.fb@gmail.com</a></p>
+    <p><strong>Página de contato:</strong> <a href="contato.html">conversor-danfse.pages.dev/contato.html</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="brand" style="color:var(--surface); margin-bottom: 14px;">
+        <span class="brand__seal" style="border-color: var(--surface); color: var(--surface); background: transparent;">D</span>
+        <span style="color: var(--surface);">DANFSe<small style="color: #6B7388;">tools · gratuito</small></span>
+      </div>
+      <p style="max-width: 36ch; font-size: 13px; line-height: 1.6;">
+        Conversor de XML da NFS-e Padrão Nacional para PDF (DANFSe) e blog técnico para a comunidade contábil brasileira.
+      </p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html#converter">Converter</a></li>
+        <li><a href="index.html#tutorial">Como funciona</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Documentos legais</h5>
+      <ul>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+        <li><a href="termos.html">Termos de Uso</a></li>
+        <li><a href="https://www.nfse.gov.br" target="_blank" rel="noopener">Portal NFS-e Nacional</a></li>
+        <li><a href="https://www.gov.br/anpd" target="_blank" rel="noopener">ANPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <strong>DANFSe.tools</strong> &middot; Ferramenta independente sem vínculo com órgãos governamentais.<br />
+    A DANFSe gerada é representação visual; o documento fiscal válido é o XML original.<br />
+    &copy; <span id="year"></span> · Welerson Fábio Brambila · Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
