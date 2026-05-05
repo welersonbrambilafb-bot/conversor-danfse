@@ -1750,6 +1750,18 @@ def montar_bloco_informacoes_complementares(data, styles, largura_util):
 # =============================================================================
 def gerar_pdf_danfse(data, pdf_path):
     """Gera o PDF da DANFSe a partir do dicionário extraído do XML."""
+
+    # Merge das infos de regime tributário do prestador para o emitente.
+    # Isso garante que campos como Simples Nacional (MEI, ME/EPP) apareçam
+    # corretamente no bloco do emitente do PDF, independentemente de quem
+    # chama esta função (interface desktop, site via Pyodide, etc.).
+    # Antes esse merge ficava só na função wrapper do desktop; o site
+    # chamava `gerar_pdf_danfse` diretamente e o campo ficava vazio.
+    if 'emit' in data and 'prest' in data:
+        data['emit']['opSimpNac'] = data['prest'].get('opSimpNac', '')
+        data['emit']['regApTribSN'] = data['prest'].get('regApTribSN', '')
+        data['emit']['regEspTrib'] = data['prest'].get('regEspTrib', '')
+
     margem = 8 * mm
     largura_pagina, altura_pagina = A4
     largura_util = largura_pagina - 2 * margem
