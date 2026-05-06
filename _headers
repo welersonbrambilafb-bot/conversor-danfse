@@ -5,21 +5,23 @@
 # As regras são aplicadas em ordem, da mais específica para a mais geral.
 
 # ============================================================
-# Sitemap.xml — força Content-Type explícito e cache curto
-# Resolve o problema de Googlebot não conseguir ler sitemaps
-# servidos com compressão brotli sem Content-Type explícito.
+# Sitemap.xml
+# - Content-Type explícito (Googlebot reconhece como XML)
+# - no-transform impede Cloudflare de aplicar compressão Brotli/Gzip
+#   automaticamente, que estava impedindo o Googlebot de ler o sitemap
+# - X-Content-Type-Options nosniff impede crawler de "adivinhar" o tipo
 # ============================================================
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=3600, no-transform
   X-Content-Type-Options: nosniff
 
 # ============================================================
-# Robots.txt — Content-Type correto e cache moderado
+# Robots.txt — Content-Type correto, cache de 24h, sem compressão
 # ============================================================
 /robots.txt
   Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=86400, no-transform
 
 # ============================================================
 # Páginas HTML — segurança e SEO
