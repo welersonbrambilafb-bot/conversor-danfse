@@ -1381,18 +1381,15 @@ def montar_bloco_tributacao_federal(data, styles, largura_util):
     vPis = vals.get('vPis', '')
     vCofins = vals.get('vCofins', '')
 
-    # Determina, para cada campo, se há efetivamente uma retenção tributária
-    # (valor > 0). Em caso positivo, o valor é exibido em vermelho e negrito.
-    pis_cofins_retidos = tp_ret_pc in ('1', '3', '4')
+    # Destaque em vermelho/negrito SOMENTE nos valores efetivamente RETIDOS
+    # (IRRF, Contribuição Previdenciária e Contribuições Sociais retidas).
+    # PIS/COFINS aqui são "Débito de Apuração Própria" (tributo próprio do
+    # emitente), portanto NÃO recebem o destaque de retenção.
     style_irrf = styles['valor_retencao'] if _eh_retencao(irrf) else styles['valor']
     style_cp = styles['valor_retencao'] if _eh_retencao(cp) else styles['valor']
     style_csll = styles['valor_retencao'] if _eh_retencao(csll) else styles['valor']
-    style_pis = (styles['valor_retencao']
-                 if pis_cofins_retidos and _eh_retencao(vPis)
-                 else styles['valor'])
-    style_cofins = (styles['valor_retencao']
-                    if pis_cofins_retidos and _eh_retencao(vCofins)
-                    else styles['valor'])
+    style_pis = styles['valor']
+    style_cofins = styles['valor']
 
     # Para o DANFSe do exemplo: CSLL é "Contribuições Sociais - Retidas"
     # Contrib Previdenciária = vRetCP
@@ -1455,58 +1452,58 @@ def montar_bloco_valor_total(data, styles, largura_util):
                     if tpRet_val in ('2', '3') and vISSQN_total
                     else '-')
 
-    # Total retenções federais (IRRF + CP + CSLL + PIS + COFINS se retidos).
-    # IMPORTANTE: este campo deve conter SOMENTE retenções federais. NÃO usar
-    # `vTotalRet` do XML como fallback, pois ele representa o total de TODAS
-    # as retenções, incluindo o ISSQN (municipal) — o que faria o valor do
-    # ISS aparecer indevidamente no campo "Total das Retenções Federais".
-    # Leiaute oficial: tpRetPisCofins 1=Retido, 2=Não Retido.
-    # Compat: mantemos também códigos antigos (3 e 4) usados em XMLs pré-NT007.
-    try:
-        total_ret_fed = 0.0
-        for k in ['vRetIRRF', 'vRetCP', 'vRetCSLL']:
-            v = vals.get(k, '')
-            if v and v not in ('-',):
-                try:
-                    total_ret_fed += float(v)
-                except (ValueError, TypeError):
-                    pass
-        # Se PIS/COFINS retidos (1=oficial, 3/4=compat)
-        if vals.get('tpRetPisCofins', '') in ('1', '3', '4'):
-            if vals.get('vPis', ''):
-                try:
-                    total_ret_fed += float(vals['vPis'])
-                except (ValueError, TypeError):
-                    pass
-            if vals.get('vCofins', ''):
-                try:
-                    total_ret_fed += float(vals['vCofins'])
-                except (ValueError, TypeError):
-                    pass
-        if total_ret_fed > 0:
-            total_ret_fed_str = fmt_moeda(total_ret_fed)
-        else:
-            # Sem retenções federais → exibe '-'.
-            # NÃO usar vTotalRet (inclui ISSQN municipal).
-            total_ret_fed_str = '-'
-    except Exception:
-        total_ret_fed_str = '-'
-
-    # PIS/COFINS Débito Apur. Própria (quando não retidos)
-    # Leiaute oficial: tpRetPisCofins=2 significa "Não Retido" => débito próprio
-    # Compat: códigos 0 (aparece em XMLs reais) tratado igualmente como não retido
-    pis_cofins_debito = '-'
-    if vals.get('tpRetPisCofins', '') in ('0', '2'):
+    # ------------------------------------------------------------------
+    # Total das Retenções Federais  +  PIS/COFINS Débito de Apuração Própria
+    # ------------------------------------------------------------------
+    # Princípio (confirmado contra a DANFSe oficial do portal nacional):
+    # vPis/vCofins do XML são tributos PRÓPRIOS do emitente (débito de
+    # apuração própria) e NÃO entram nas retenções, salvo quando o próprio
+    # XML indicar que foram efetivamente retidos.
+    #
+    # Fonte de verdade do total retido: <vTotalRet> da NFS-e. Como ele
+    # engloba também o ISSQN municipal (quando retido), descontamos essa
+    # parcela para isolar a porção FEDERAL — assim o ISS nunca vaza para
+    # "Total das Retenções Federais".
+    #
+    # Verificação de somas (corrige o erro já identificado de contar PIS/
+    # COFINS próprios como retenção): a porção federal de <vTotalRet> é
+    # reconciliada contra as retenções explícitas (IRRF/CP/CSLL); só somamos
+    # PIS/COFINS às retenções se o XML comprovar que estão retidos.
+    def _to_num(s):
         try:
-            soma = 0.0
-            if vals.get('vPis', ''):
-                soma += float(vals['vPis'])
-            if vals.get('vCofins', ''):
-                soma += float(vals['vCofins'])
-            if soma > 0:
-                pis_cofins_debito = fmt_moeda(soma)
-        except Exception:
-            pass
+            return float(s)
+        except (ValueError, TypeError):
+            return 0.0
+
+    total_ret_fed = 0.0
+    pis_cofins_debito = '-'
+    try:
+        ret_explicit = (_to_num(vals.get('vRetIRRF', '')) +
+                        _to_num(vals.get('vRetCP', '')) +
+                        _to_num(vals.get('vRetCSLL', '')))
+        pis_cofins_val = _to_num(vals.get('vPis', '')) + _to_num(vals.get('vCofins', ''))
+
+        issqn_retido_val = _to_num(vISSQN_total) if tpRet_val in ('2', '3') else 0.0
+        vtotal_ret = _to_num(vals_nfse.get('vTotalRet', ''))
+        fed_ret_xml = vtotal_ret - issqn_retido_val  # porção federal do total oficial
+
+        if vtotal_ret > 0 and abs(fed_ret_xml - (ret_explicit + pis_cofins_val)) < 0.01:
+            # XML comprova PIS/COFINS RETIDOS → entram nas retenções federais.
+            total_ret_fed = ret_explicit + pis_cofins_val
+            pis_cofins_debito_val = 0.0
+        else:
+            # Caso padrão: PIS/COFINS = débito de apuração própria (não retidos).
+            # Retenções federais = somente os campos de retido (IRRF/CP/CSLL).
+            total_ret_fed = ret_explicit
+            pis_cofins_debito_val = pis_cofins_val
+
+        if pis_cofins_debito_val > 0:
+            pis_cofins_debito = fmt_moeda(pis_cofins_debito_val)
+    except Exception:
+        total_ret_fed = 0.0
+        pis_cofins_debito = '-'
+
+    total_ret_fed_str = fmt_moeda(total_ret_fed) if total_ret_fed > 0 else '-'
 
     vLiq = vals_nfse.get('vLiq', '') or vServ
 
@@ -1750,18 +1747,6 @@ def montar_bloco_informacoes_complementares(data, styles, largura_util):
 # =============================================================================
 def gerar_pdf_danfse(data, pdf_path):
     """Gera o PDF da DANFSe a partir do dicionário extraído do XML."""
-
-    # Merge das infos de regime tributário do prestador para o emitente.
-    # Isso garante que campos como Simples Nacional (MEI, ME/EPP) apareçam
-    # corretamente no bloco do emitente do PDF, independentemente de quem
-    # chama esta função (interface desktop, site via Pyodide, etc.).
-    # Antes esse merge ficava só na função wrapper do desktop; o site
-    # chamava `gerar_pdf_danfse` diretamente e o campo ficava vazio.
-    if 'emit' in data and 'prest' in data:
-        data['emit']['opSimpNac'] = data['prest'].get('opSimpNac', '')
-        data['emit']['regApTribSN'] = data['prest'].get('regApTribSN', '')
-        data['emit']['regEspTrib'] = data['prest'].get('regEspTrib', '')
-
     margem = 8 * mm
     largura_pagina, altura_pagina = A4
     largura_util = largura_pagina - 2 * margem
@@ -1891,12 +1876,9 @@ def _processar_xml_individual(xml_path, pasta_destino):
 
         pdf_path = os.path.join(pasta_destino, f"{nome_base}.pdf")
 
-        # Se o arquivo já existir (mesma chave processada duas vezes), acrescenta _N
-        i = 1
-        while os.path.exists(pdf_path):
-            pdf_path = os.path.join(pasta_destino, f"{nome_base}_{i}.pdf")
-            i += 1
-
+        # Se já existir um PDF com o mesmo nome (mesma nota reprocessada),
+        # sobrescreve — mesmo comportamento dos ZIP e dos XML extraídos,
+        # para não acumular notas repetidas.
         gerar_pdf_danfse(data, pdf_path)
         return (True, f"OK  | {os.path.basename(xml_path)}  →  {os.path.basename(pdf_path)}",
                 pdf_path)
